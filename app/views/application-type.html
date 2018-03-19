@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Step A
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'components/progress-bar.html' %}
+
+	<div class="grid-row">
+		<div class="column-full">
+			<header>
+				<h2 class="heading-large">What kind of application have you made to your local authority?</h2>
+			</header>
+
+			<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+				<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+					Message to alert the user to a problem goes here
+				</h2>
+
+				<p>
+					Optional description of the errors and how to correct them
+				</p>
+
+				<ul class="error-summary-list">
+					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+				</ul>
+			</div>
+
+			<div class="step-container in show" data-index="1">			
+				<form action="/reason-appeal" method="get" class="form">
+					<div class="form-group form-elem-container">
+						<fieldset class="">
+							<legend class="visually-hidden">Choose one of the following</legend>
+
+							<div class="multiple-choice">
+								<input id="stepB" type="radio" name="step" value="stepB" data-rule-required="true">
+								<label for="stepB">A planning application</label>
+							</div>
+
+							<div class="multiple-choice">
+								<input id="stepC" type="radio" name="step" value="stepB" data-rule-required="true">
+								<label for="stepC">An enforcement notice</label>
+							</div>
+
+							<div class="multiple-choice">
+								<input id="stepD" type="radio" name="step" value="stepB" data-rule-required="true">
+								<label for="stepD">A lawful development</label>
+							</div>
+							<span class="error-container"></span>
+						</fieldset>
+					</div>
+
+					<div class="form-group">
+						<input type="submit" class="button" value="Save and continue">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

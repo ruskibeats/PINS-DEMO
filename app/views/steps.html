@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Step example
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'components/progress-bar.html' %}
+
+	<div class="grid-row">
+		<div class="column-full">
+			{{ data | dump | safe }}			
+			{% for step in steps %}
+				<div class="step-container{% if step.className %} {{ step.className }}{% endif %}" data-index="{{loop.index}}">
+					<header>
+						<h2 class="heading-large">{{ step.title }}</h2>
+					</header>
+					<div class="step-content">
+						{{ step.content }}
+					</div>					
+
+					<form action="/steps" method="get" class="form">				
+
+						{% if step.id == 'step_a' %}
+							{% include "components/step-a.html" %}
+						{% endif %}
+
+						{% if step.id == 'step_b' %}
+							{% include "components/step-b.html" %}
+						{% endif %}
+
+						{% if step.id == 'confirm' %}
+							{% include "components/step-c.html" %}
+						{% endif %}
+
+						{% if step.id == 'submit' %}
+							{% include "components/step-d.html" %}
+						{% endif %}
+
+						</form>
+
+					<div class="step-controls">
+						{% if step.prev == true %}
+							<button class="button step-prev" >Back</button>
+						{% endif %}
+					
+						{% if step.next == true and step.id != 'submit' and step.id != 'confirm' %}
+						{# <div class="form-group">
+							<button class="button step-next">Save and continue</button>
+						</div> #}
+						{% endif %}
+
+						{# {% if step.id == "confirm" %}
+						<div class="form-group">
+							<input type="submit" class="button" value="Submit" />
+						</div>
+						{% endif %} #}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</main>
+
+{% endblock %}

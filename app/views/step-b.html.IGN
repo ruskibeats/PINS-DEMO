@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Step B
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'components/progress-bar.html' %}
+
+	<div class="grid-row">
+		<div class="column-full">
+			<header>
+				<h2 class="heading-large">Step B</h2>
+			</header>
+			
+			<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+				<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+					Message to alert the user to a problem goes here
+				</h2>
+
+				<p>
+					Optional description of the errors and how to correct them
+				</p>
+
+				<ul class="error-summary-list">
+					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+				</ul>
+			</div>
+			<div class="step-container in show" data-index="2">
+				<form action="/step-c" method="get" class="form">
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="postcode">Postcode</label>
+						<input class="form-control" id="postcode" name="postcode" type="text" value="{{data['postcode']}}" data-rule-required="true" data-rule-postcodeUK="true"> 
+						<span class="error-message" data-valmsg-for="postcode" data-valmsg-replace="true"></span>
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<div class="form-date">
+							<label class="form-label" for="date">Date</label>
+							<input class="form-control datepicker" id="date" name="date" type="text" value="{{data['date']}}" data-rule-required="true">
+							<span class="error-container"></span>
+						</div>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<div class="form-date">
+							<div class="form-group form-group-day">
+								<label class="form-label" for="day">Day</label>
+								<input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{data['day']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-month">
+								<label class="form-label" for="month">Month</label>
+								<input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{data['month']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-year">
+								<label class="form-label" for="year">Year</label>
+								<input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{data['year']}}" data-rule-required="true" data-rule-minlength="4" data-rule-maxlength="4">
+							</div>
+						</div>
+						<span class="error-container"></span>
+					</div>
+
+					
+					<div class="form-group">
+						<input type="submit" class="button" value="Save and continue">
+					</div>
+				</form>
+			</div>				
+		</div>
+	</div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Form creator
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div class="grid-row">
+		<div class="column-full">
+		<header>
+			<h2 class="heading-large">Are you the appellant?</h2>
+		</header>
+
+		<form action="/form-step-a" method="get" class="form">
+			<div class="form-group form-elem-container">
+				<fieldset class="">
+					<legend class="visually-hidden">Please choose from the following</legend>
+
+					<div class="multiple-choice">
+						<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true">
+						<label for="registeredTrue">Yes I am the appellant</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="registeredFalse" type="radio" name="registered" value="false" data-rule-required="true">
+						<label for="registeredFalse">No I am an agent</label>
+					</div>
+					<span class="error-container"></span>
+				</fieldset>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" class="button" value="Continue">
+			</div>
+		</form>
+		
+		</div>
+	</div>
+</main>
+
+{% endblock %}

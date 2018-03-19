@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Step example
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'components/progress-bar.html' %}
+
+	<div class="grid-row">
+		<div class="column-full">
+		
+			{% for step in steps %}
+			{% if loop.last %}			
+				{# {% if loop.length == loop.index %} #}
+				<div class="step-container{% if steps[0].className %} {{ steps[0].className }}{% endif %}" data-index="{{loop.index}}">
+					<header>
+						<h2 class="heading-large">{{ step[0].title }}</h2>
+					</header>
+					<div class="step-content">
+						{{ steps[0].content }}
+					</div>
+								
+					{% include "components/step-d.html" %}
+						
+				</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</main>
+
+{% endblock %}

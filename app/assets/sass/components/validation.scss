@@ -1,0 +1,9 @@
+.error-summary {
+    display: none;
+
+    &.in {
+        display: block;
+    }
+}
+
+.error-message {}

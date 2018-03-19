@@ -1,0 +1,10 @@
+.tile {
+    display: block;
+    text-align: center;
+    padding: 0 20px 20px 0;
+}
+
+.tile-inner {
+    padding: 20px;    
+    background-color: $grey-3;
+}

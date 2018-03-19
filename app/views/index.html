@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  ACP Home
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+			<header>
+				<h2 class="heading-large">Application form</h2>
+			</header>
+			<p>Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.</p>		
+			<form action="/application-type" method="get" class="form">
+				{# <div class="form-group form-elem-container">
+					<fieldset class="">
+						<legend class="">Have you registered?</legend>
+
+						<div class="multiple-choice">
+							<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true">
+							<label for="registeredTrue">Yes</label>
+						</div>
+
+						<div class="multiple-choice">
+							<input id="registeredFalse" type="radio" name="registered" value="false" data-rule-required="true">
+							<label for="registeredFalse">No</label>
+						</div>
+						<span class="error-container"></span>
+					</fieldset>
+				</div> #}
+
+				<div class="form-group">
+					<input type="submit" class="button" value="Start">
+				</div>
+			</form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
