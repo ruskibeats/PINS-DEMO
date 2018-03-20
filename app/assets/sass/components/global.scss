@@ -39,3 +39,26 @@ ul {
         text-align: right;        
     }
 }
+
+.fileupload {
+    position: relative;
+    &:after {
+        content: '\2713';
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 250px;
+        background-color: green;
+        color: #FFF;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+    }
+
+    &.uploaded {
+        &:after {
+            display: block;
+        }        
+    }
+}
