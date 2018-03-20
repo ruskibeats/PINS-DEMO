@@ -6,8 +6,7 @@
 
 {% block content %}
 <main id="content" role="main">
-	<div class="grid-row">
-		{% include 'components/progress-bar.html' %}
+	<div class="grid-row">		
 		{% include 'components/top-bar.html' %}
 	</div>
 
@@ -49,9 +48,7 @@
 										Appeal date
 									</dt>
 									<dd class="cya-answer">
-										{{data['appeal-date']}}
-									
-										{{data['lpa-date']}}
+										{{data['day']}} / {{data['month']}} / {{data['year']}}
 									</dd>
 									<dd class="cya-change">
 										<a href="/date-lpa">
