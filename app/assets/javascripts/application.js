@@ -107,7 +107,7 @@ $(document).ready(function () {
 
         $this.on('change', function () {
           console.log('fire');
-          $this.parent('.form-group').find('.text-hint').addClass('show');
+          $this.parent('.form-group').find('.text-hint').show();
         });
     });
   });
