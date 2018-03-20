@@ -71,33 +71,44 @@ $(document).ready(function () {
     var $progressStepSelector = $('.progress-step').eq($progress_step-1);
     
     $('.progress-step').removeClass('complete');
-    $progressStepSelector.addClass('complete');
-  }
-});
-
-$(function () {
-  $('.datepicker').datepicker({
-    buttonText: 'Calendar View',
-    dayNamesShort: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
-    showButtonPanel: true,
-    closeText: 'Close'
-});
-
-$(function () {
-
-  function onSelect(dateText, inst) {
-    var pieces = dateText.split('/');
-    $('#day').val(pieces[0]);
-    $('#month').val(pieces[1]);
-    $('#year').val(pieces[2]);
-  };
-
-  $('.datepicker').click(function(event) {
-    var d = $('#day').val() + '/' + $('#month').val() + '/' + $('#year').val();
-    $(this).datepicker('dialog', d, onSelect, { dateFormat: 'dd/mm/yy' }, [10, 40]);
+      $progressStepSelector.addClass('complete');
+    }
   });
-});
+
+  $(function () {
+    $('.datepicker').datepicker({
+      buttonText: 'Calendar View',
+      dayNamesShort: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+      showButtonPanel: true,
+      closeText: 'Close'
+  });
+
+  $(function () {
+    function onSelect(dateText, inst) {
+      var pieces = dateText.split('/');
+      $('#day').val(pieces[0]);
+      $('#month').val(pieces[1]);
+      $('#year').val(pieces[2]);
+    };
+
+    $('.datepicker').click(function(event) {
+      var d = $('#day').val() + '/' + $('#month').val() + '/' + $('#year').val();
+      $(this).datepicker('dialog', d, onSelect, { dateFormat: 'dd/mm/yy' }, [10, 40]);
+    });
+  });
 
   // Add aria-describedby to the button referring to the label
   $('.ui-datepicker-trigger').attr('aria-describedby', 'datepickerLabel');
+
+  $(function () {
+    $('.select-plan').each(function () {
+        var $this = $(this);
+        $this.next('.text-hint').hide();
+
+        $this.on('change', function () {
+          console.log('fire');
+          $this.parent('.form-group').find('.text-hint').addClass('show');
+        });
+    });
+  });
 });
