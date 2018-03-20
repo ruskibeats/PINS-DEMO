@@ -1,9 +1,0 @@
-    <div class="column-half">
-        <div class="progress-bar">
-            {% for step in progress %}
-                <div class="progress-step" id="{{ step.id }}" index="{{loop.index}}">
-                    <p>Step {{ step.id }} of {{ loop.length }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
