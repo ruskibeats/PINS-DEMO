@@ -10,12 +10,17 @@ $path: "/public/images/";
 @import 'patterns/check-your-answers';
 @import 'patterns/task-list';
 
+@import 'components/global';
 @import 'components/progress-bar';
 @import 'components/validation';
 @import 'components/datepicker';
 @import 'components/steps';
 @import 'components/tiles';
 @import 'components/summary-information';
+@import 'components/upload';
+
+// Pages
+@import 'pages/confirm-details';
 
 // Third party
 @import 'thirdparty/jquery-ui/jquery-ui';

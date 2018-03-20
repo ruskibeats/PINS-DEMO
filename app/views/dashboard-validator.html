@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Flagged applications
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+	{% include 'components/progress-bar.html' %}
+
+	<div class="grid-row">
+		<div class="column-full">
+			<header>
+				<h2 class="heading-large">Flagged applications</h2>
+			</header>
+			<form>
+			<div class="form-group">			
+			<table>
+				<thead>
+					<tr>
+						<th>Ref</th>
+						<th>Date submitted</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tr>
+					<td>M123</td>
+					<td>11/02/2017</td>
+					<td>
+						<label class="form-label visually-hidden" for="select-box">Status select</label>
+						<select class="form-control" id="select-box-1" name="select-box-1">
+							<option value="">Valid</option>
+							<option value="">Invalid</option>
+						</select>
+					</td>
+					<td><a href="#">View</a></td>
+				</tr>
+				<tr>
+					<td>L456</td>
+					<td>06/01/2018</td>
+					<td>
+						<label class="form-label visually-hidden" for="select-box">Status select</label>
+						<select class="form-control" id="select-box-2" name="select-box-2">
+							<option value="">Valid</option>
+							<option value="">Invalid</option>
+						</select>
+					</td>
+					<td><a href="#">View</a></td>
+				</tr>
+
+			</table>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" class="button" value="Update">
+			</div>
+			</form>
+		</div>
+	</div>
+</main>
+{% endblock %}

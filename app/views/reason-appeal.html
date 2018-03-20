@@ -28,26 +28,20 @@
 					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
 				</ul>
 			</div>
+		</div>
+	</div>
+	<div class="grid-row">
+		<div class="content-block">
+			<div class="form-group form-elem-container">
+				<legend class="visually-hidden">Choose one of the following</legend>
 
-			<div class="step-container in show" data-index="1">			
-				<form action="/enforcement-notice" method="get" class="form">
-					<div class="form-group form-elem-container">
-						<fieldset class="">
-
-							<legend class="visually-hidden">Choose one of the following</legend>
-
-							{% for reason in reasons %}
-							<a href="/date-lpa" class="tile column-one-quarter">
-								<div class="tile-inner">
-									{{reason.title}}
-								</div>
-							</a>
-							{% endfor %}
-
-						</fieldset>
-						<span class="error-container"></span>						
+				{% for reason in reasons %}
+				<a href="/date-lpa" class="tile column-one-quarter">
+					<div class="tile-inner">
+						{{reason.title}}
 					</div>
-				</form>
+				</a>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

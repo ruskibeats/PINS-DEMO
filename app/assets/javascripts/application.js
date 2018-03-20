@@ -24,6 +24,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     var submitted = false;
     $('.form').validate({
+        rules: {
+          fileUploadPlan: {
+              required: true,
+              extension: "pdf|doc|docx"
+          }
+        },
         errorClass: 'error-message',
         errorPlacement: function(error, element) {
             error.appendTo( element.parents('.form-elem-container').find('.error-container') );
@@ -43,6 +49,12 @@ $(document).ready(function () {
             submitted = true;
         }
     });
+
+    $('input[class^="fileupload"]').each(function () {
+      $(this).rules('add', {
+          accept: "image/jpeg, image/png"
+      })
+    })
 });
 
 $(document).ready(function () {

@@ -2,6 +2,27 @@ const express = require('express')
 const router = express.Router()
 
 // Variables
+var thumbnails = {
+  'thumbnails': [
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'site_plan_IMG_A.png'
+    },
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'floor_plans_IMG_B.pdf'
+    },
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'other_IMG_C.doc'
+    },
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'layout_plan_IMG_D.gif'
+    }
+  ]
+}
+
 var appeal_reasons = {
   'reasons': [
     {
@@ -167,6 +188,21 @@ router.get('/appellant', function (req, res) {
 // } else {
 //   res.render('appellant')
 // }
+});
+
+// Route thank you page
+router.get('/confirm-details', function (req, res) {
+  res.render('confirm-details', thumbnails);
+});
+
+// Route thank you page
+router.get('/dashboard-appellant', function (req, res) {
+  res.render('dashboard-appellant', thumbnails);
+});
+
+// Route thank you page
+router.get('/dashboard-validator', function (req, res) {
+  res.render('dashboard-validator');
 });
 
 // Route thank you page
