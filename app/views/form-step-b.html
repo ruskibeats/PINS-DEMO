@@ -28,7 +28,7 @@
 					</ul>
 				</div>
 
-				<form action="/confirm-details" method="get" class="form">
+				<form action="/form-step-c" method="get" class="form">
 
 					<div class="form-group form-elem-container">
 						<label class="form-label" for="person-name">First name</label>
@@ -100,6 +100,11 @@
 						<div class="multiple-choice">
 							<input id="contactPreferencePhone" type="radio" name="contact-preference" value="Phone" value="{{data['contact-preference']}}" data-rule-required="true" {% if data['contact-preference'] == 'Phone' %}checked{% endif %}>
 							<label for="contactPreferencePhone">Phone</label>
+						</div>
+
+						<div class="multiple-choice">
+							<input id="contactPreferenceEmail" type="radio" name="contact-preference" value="SMS" data-rule-required="true" {% if data['contact-preference'] == 'SMS' %}checked{% endif %}>
+							<label for="contactPreferenceEmail">SMS</label>
 						</div>
 					</div>
 
