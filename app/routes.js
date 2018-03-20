@@ -99,48 +99,6 @@ var data = {
   ]
 }
 
-// var data_steps = {
-//   'steps': [
-//     {
-//       'className': 'in show',
-//       'order' : '1',
-//       'id' : 'step_a',
-//       'label': 'Step A',
-//       'title': 'Step A',
-//       'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
-//       'prev': false,
-//       'next': true
-//     },
-//     {
-//       'order' : '2',
-//       'id' : 'step_b',
-//       'label': 'Step B',
-//       'title': 'Step B',
-//       'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at nulla sed urna bibendum facilisis vel quis nunc. Vestibulum fringilla sodales interdum. Curabitur viverra mollis interdum. Ut orci tellus, commodo at congue at, maximus id felis. Fusce ullamcorper euismod lectus.',
-//       'prev': true,
-//       'next': true
-//     },
-//     {
-//       'order' : '4',
-//       'id' : 'confirm',
-//       'label': 'Step C',
-//       'title': 'Step C',
-//       'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
-//       'prev': true,
-//       'next': false
-//     },      
-//     {
-//       'order' : '4',
-//       'id' : 'thankyou',
-//       'label': 'Step D',
-//       'title': 'Thank you',
-//       'content': 'Your submission is complete',
-//       'prev': true,
-//       'next': false
-//     }
-//   ]
-// }
-
 // Route index page
 router.get('/', function (req, res) {
   res.render('index')
