@@ -213,12 +213,12 @@ router.get('/confirm-details', function (req, res) {
 
 // Route thank you page
 router.get('/dashboard-appellant', function (req, res) {
-  res.render('dashboard-appellant', tdata);
+  res.render('dashboard-appellant');
 });
 
 // Route thank you page
 router.get('/dashboard-validator', function (req, res) {
-  res.render('dashboard-validator', data);
+  res.render('dashboard-validator');
 });
 
 // Route placeholder page
