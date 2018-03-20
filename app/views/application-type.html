@@ -7,10 +7,12 @@
 {% block content %}
 
 <main id="content" role="main">
-	{% include 'components/top-bar.html' %}
+	<div class="grid-row">
+		{% include 'components/progress-bar.html' %}
+		{% include 'components/top-bar.html' %}
+	</div>
 
 	<div class="acp-form-container" data-progress="1">
-		{% include 'components/progress-bar.html' %}
 		<div class="grid-row">
 			<div class="column-two-thirds">
 				<header>
