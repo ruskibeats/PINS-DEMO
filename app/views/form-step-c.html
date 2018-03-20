@@ -7,123 +7,138 @@
 {% block content %}
 
 <main id="content" role="main">
+	<div class="acp-form-container" data-progress="7">
+		{% include 'components/progress-bar.html' %}
 
-	<div class="grid-row">
-		<div class="column-full">
-			<header>
-				<h2 class="heading-large">Upload your files</h2>
-			</header>
+		<div class="grid-row">
+			<div class="column-full">
+				<header>
+					<h2 class="heading-large">Upload your files</h2>
+				</header>
 
-			<form action="/confirm-details" method="get" class="form">
-				<div class="plan-upload">
-					<h2 class="heading-large">Plans on which LPA made it's decision</h2>
-					<div class="form-group form-elem-container">
-						<label class="form-label" for="select-box">What type of plan is this document?</label>
-						<select class="form-control" id="select-box" name="select-box">
-							<option value="">Site plan</option>
-							<option value="">Layout</option>
-							<option value="">Floor plans - Ex</option>
-							<option value="">Floor plans - Pro</option>
-							<option value="">Excavations - Ex</option>
-							<option value="">Excavations - Pro</option>
-							<option value="">Other</option>
-						</select>
-					</div>
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+						Message to alert the user to a problem goes here
+					</h2>
 
-					<div class="form-group form-elem-container">
-						<div class="form-file">
-							<label for="file-input">Upload file
-							<span class="form-hint">
-								You can upload pdf, word, jpg, png
-							</span>
-							</label>
-							<input type="file" name="fileupload1" id="file-input" class="fileupload">
-						</div>
-						<span class="error-container"></span>
-					</div>
+					<p>Optional description of the errors and how to correct them</p>
+
+					<ul class="error-summary-list">
+						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+					</ul>
 				</div>
 
-				<div class="plan-upload">
-					<h2 class="heading-large">Originally submitted plan</h2>
-					<div class="form-group form-elem-container">
-						<label class="form-label" for="select-box">What type of plan is this document?</label>
-						<select class="form-control" id="select-box" name="select-box">
-							<option value="">Site plan</option>
-							<option value="">Layout</option>
-							<option value="">Floor plans - Ex</option>
-							<option value="">Floor plans - Pro</option>
-							<option value="">Excavations - Ex</option>
-							<option value="">Excavations - Pro</option>
-							<option value="">Other</option>
-						</select>
+				<form action="/confirm-details" method="get" class="form">
+					<div class="plan-upload">
+						<h2 class="heading-large">Plans on which LPA made it's decision</h2>
+						<div class="form-group form-elem-container">
+							<label class="form-label" for="select-box">What type of plan is this document?</label>
+							<select class="form-control" id="select-box" name="select-box">
+								<option value="">Site plan</option>
+								<option value="">Layout</option>
+								<option value="">Floor plans - Ex</option>
+								<option value="">Floor plans - Pro</option>
+								<option value="">Excavations - Ex</option>
+								<option value="">Excavations - Pro</option>
+								<option value="">Other</option>
+							</select>
+						</div>
+
+						<div class="form-group form-elem-container">
+							<div class="form-file">
+								<label for="file-input">Upload file
+								<span class="form-hint">
+									You can upload pdf, word, jpg, png
+								</span>
+								</label>
+								<input type="file" name="fileupload1" id="file-input" class="fileupload">
+							</div>
+							<span class="error-container"></span>
+						</div>
 					</div>
 
-					<div class="form-group form-elem-container">
-						<div class="form-file">
-							<label for="file-input">Upload file
-							<span class="form-hint">
-								You can upload pdf, word, jpg, png
-							</span>
-							</label>
-							<input type="file" name="fileupload2" id="file-input" class="fileupload">
+					<div class="plan-upload">
+						<h2 class="heading-large">Originally submitted plan</h2>
+						<div class="form-group form-elem-container">
+							<label class="form-label" for="select-box">What type of plan is this document?</label>
+							<select class="form-control" id="select-box" name="select-box">
+								<option value="">Site plan</option>
+								<option value="">Layout</option>
+								<option value="">Floor plans - Ex</option>
+								<option value="">Floor plans - Pro</option>
+								<option value="">Excavations - Ex</option>
+								<option value="">Excavations - Pro</option>
+								<option value="">Other</option>
+							</select>
+						</div>
+
+						<div class="form-group form-elem-container">
+							<div class="form-file">
+								<label for="file-input">Upload file
+								<span class="form-hint">
+									You can upload pdf, word, jpg, png
+								</span>
+								</label>
+								<input type="file" name="fileupload2" id="file-input" class="fileupload">
+							</div>
+							<span class="error-container"></span>
+						</div>
+					</div>
+
+					<div class="plan-upload">
+						<h2 class="heading-large">Any other plans</h2>
+
+						<div class="form-group form-elem-container">
+							<label class="form-label" for="select-box">What type of plan is this document?</label>
+							<select class="form-control" id="select-box" name="select-box">
+								<option value="">Site plan</option>
+								<option value="">Layout</option>
+								<option value="">Floor plans - Ex</option>
+								<option value="">Floor plans - Pro</option>
+								<option value="">Excavations - Ex</option>
+								<option value="">Excavations - Pro</option>
+								<option value="">Other</option>
+							</select>
+						</div>
+
+						<div class="form-group form-elem-container">
+							<div class="form-file">
+								<label for="file-input">Upload file
+								<span class="form-hint">
+									You can upload pdf, word, jpg, png
+								</span>
+								</label>
+								<input type="file" name="fileupload3" id="file-input" class="fileupload">
+							</div>
+							<span class="error-container"></span>
+						</div>
+						
+					</div>
+
+					{# <div class="form-group form-elem-container">
+						<div class="form-date">
+							<div class="form-group form-group-day">
+								<label class="form-label" for="day">Day</label>
+								<input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{data['day']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-month">
+								<label class="form-label" for="month">Month</label>
+								<input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{data['month']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-year">
+								<label class="form-label" for="year">Year</label>
+								<input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{data['year']}}" data-rule-required="true" data-rule-minlength="4" data-rule-maxlength="4">
+							</div>
 						</div>
 						<span class="error-container"></span>
-					</div>
-				</div>
+					</div> #}
 
-				<div class="plan-upload">
-					<h2 class="heading-large">Any other plans</h2>
-
-					<div class="form-group form-elem-container">
-						<label class="form-label" for="select-box">What type of plan is this document?</label>
-						<select class="form-control" id="select-box" name="select-box">
-							<option value="">Site plan</option>
-							<option value="">Layout</option>
-							<option value="">Floor plans - Ex</option>
-							<option value="">Floor plans - Pro</option>
-							<option value="">Excavations - Ex</option>
-							<option value="">Excavations - Pro</option>
-							<option value="">Other</option>
-						</select>
-					</div>
-
-					<div class="form-group form-elem-container">
-						<div class="form-file">
-							<label for="file-input">Upload file
-							<span class="form-hint">
-								You can upload pdf, word, jpg, png
-							</span>
-							</label>
-							<input type="file" name="fileupload3" id="file-input" class="fileupload">
-						</div>
-						<span class="error-container"></span>
-					</div>
 					
-				</div>
-
-				{# <div class="form-group form-elem-container">
-					<div class="form-date">
-						<div class="form-group form-group-day">
-							<label class="form-label" for="day">Day</label>
-							<input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{data['day']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
-						</div>
-						<div class="form-group form-group-month">
-							<label class="form-label" for="month">Month</label>
-							<input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{data['month']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
-						</div>
-						<div class="form-group form-group-year">
-							<label class="form-label" for="year">Year</label>
-							<input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{data['year']}}" data-rule-required="true" data-rule-minlength="4" data-rule-maxlength="4">
-						</div>
+					<div class="form-group">
+						<input type="submit" class="button" value="Save and continue">
 					</div>
-					<span class="error-container"></span>
-				</div> #}
-
-				
-				<div class="form-group">
-					<input type="submit" class="button" value="Save and continue">
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
 </main>

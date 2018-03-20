@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Variables
-var thumbnails = {
+var data = {
   'thumbnails': [
     {
       'src': 'http://placehold.it/75x75/',
@@ -20,10 +20,33 @@ var thumbnails = {
       'src': 'http://placehold.it/75x75/',
       'title': 'layout_plan_IMG_D.gif'
     }
-  ]
-}
-
-var appeal_reasons = {
+  ],
+  'progress': [
+    {
+      'id': '1'
+    },
+    {
+      'id': '2'
+    },
+    {
+      'id': '3'
+    },
+    {
+      'id': '4'
+    },
+    {
+      'id': '5'
+    },
+    {
+      'id': '6'
+    },
+    {
+      'id': '7'
+    },
+    {
+      'id': '8'
+    }
+  ],
   'reasons': [
     {
       'title': 'Reason A'
@@ -52,61 +75,51 @@ var appeal_reasons = {
   ]
 }
 
-var data_steps = {
-  'steps': [
-    {
-      'className': 'in show',
-      'order' : '1',
-      'id' : 'step_a',
-      'label': 'Step A',
-      'title': 'Step A',
-      'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
-      'prev': false,
-      'next': true
-    },
-    {
-      'order' : '2',
-      'id' : 'step_b',
-      'label': 'Step B',
-      'title': 'Step B',
-      'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at nulla sed urna bibendum facilisis vel quis nunc. Vestibulum fringilla sodales interdum. Curabitur viverra mollis interdum. Ut orci tellus, commodo at congue at, maximus id felis. Fusce ullamcorper euismod lectus.',
-      'prev': true,
-      'next': true
-    },
-    {
-      'order' : '4',
-      'id' : 'confirm',
-      'label': 'Step C',
-      'title': 'Step C',
-      'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
-      'prev': true,
-      'next': false
-    },      
-    {
-      'order' : '4',
-      'id' : 'thankyou',
-      'label': 'Step D',
-      'title': 'Thank you',
-      'content': 'Your submission is complete',
-      'prev': true,
-      'next': false
-    }
-  ]
-}
+// var data_steps = {
+//   'steps': [
+//     {
+//       'className': 'in show',
+//       'order' : '1',
+//       'id' : 'step_a',
+//       'label': 'Step A',
+//       'title': 'Step A',
+//       'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
+//       'prev': false,
+//       'next': true
+//     },
+//     {
+//       'order' : '2',
+//       'id' : 'step_b',
+//       'label': 'Step B',
+//       'title': 'Step B',
+//       'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at nulla sed urna bibendum facilisis vel quis nunc. Vestibulum fringilla sodales interdum. Curabitur viverra mollis interdum. Ut orci tellus, commodo at congue at, maximus id felis. Fusce ullamcorper euismod lectus.',
+//       'prev': true,
+//       'next': true
+//     },
+//     {
+//       'order' : '4',
+//       'id' : 'confirm',
+//       'label': 'Step C',
+//       'title': 'Step C',
+//       'content': 'Morbi vehicula nulla non ligula suscipit, et bibendum augue rhoncus. Integer ornare nibh vehicula tortor ullamcorper, at ullamcorper nulla mollis.',
+//       'prev': true,
+//       'next': false
+//     },      
+//     {
+//       'order' : '4',
+//       'id' : 'thankyou',
+//       'label': 'Step D',
+//       'title': 'Thank you',
+//       'content': 'Your submission is complete',
+//       'prev': true,
+//       'next': false
+//     }
+//   ]
+// }
 
 // Route index page
 router.get('/', function (req, res) {
   res.render('index')
-})
-
-router.post('/', function (req, res) {
-  var registered = req.query.registered
-
-  if (registered === 'false') {
-    res.redirect('/register')
-  } else {
-    res.render('steps', data_steps)    
-  }
 })
 
 // Route register page
@@ -116,12 +129,10 @@ router.get('/register', function (req, res) {
 
 // Route login
 router.get('/login', function (req, res) {
-  // res.render('login')
-
   var appeal = req.query.appeal
 
   if (appeal === 'true') {
-    res.render('login')    
+    res.render('login', data)    
   } else {
     res.redirect('appellant')
   }
@@ -134,25 +145,23 @@ router.get('/application-type', function (req, res) {
   if (registered === 'false') {
     res.redirect('/register')
   } else {
-    res.render('application-type', data_steps)
+    res.render('application-type', data)
   }
 });
 
 // Route reason for appeal
 router.get('/reason-appeal', function (req, res) {
-  // res.render('reason-appeal', data_steps)
   var enforcementNotice = req.query.enforcementNotice
 
   if (enforcementNotice === 'enforcementNotice') {
     res.redirect('/enforcement-notice')
   } else {
-    res.render('reason-appeal', appeal_reasons)
+    res.render('reason-appeal', data)
   }
 });
 
 // Route enforcement notice
 router.get('/enforcement-notice', function (req, res) {  
-  // res.render('enforcement-notice')
   var enforcementNotice = req.query.enforcementNotice
 
   if (enforcementNotice === 'false') {
@@ -164,7 +173,7 @@ router.get('/enforcement-notice', function (req, res) {
 
 // // Route date of decision
 router.get('/date-lpa', function (req, res) {  
-  res.render('date-lpa')
+  res.render('date-lpa', data)
 });
 
 // Route create appeal
@@ -174,48 +183,41 @@ router.get('/create-appeal', function (req, res) {
   if (dateLPA === 'false') {
     res.redirect('/place-holder')
   } else {
-    res.render('create-appeal')
+    res.render('create-appeal', data)
   }
 });
 
 // Route create appeal
 router.get('/appellant', function (req, res) {
-  res.render('appellant')
-  
-//   var email = req.query.email
-// if (email !== '') {
-//   res.redirect('/form-step-a')
-// } else {
-//   res.render('appellant')
-// }
+  res.render('appellant', data)
+});
+
+// Route form pages
+router.get('/form-step-a', function (req, res) {
+  res.render('form-step-a', data)
+});
+router.get('/form-step-b', function (req, res) {
+  res.render('form-step-b', data)
+});
+router.get('/form-step-b', function (req, res) {
+  res.render('form-step-b', data)
 });
 
 // Route thank you page
 router.get('/confirm-details', function (req, res) {
-  // res.render('confirm-details', thumbnails);
-  // var confirm_correct = req.query.confirm_correct
-
-  // if (confirm_correct === 'on') {
-  //   res.redirect('/thank-you')
-  // } else {
-  //   res.render('confirm-details')
-  // }
-  res.render('confirm-details')
-  
+  res.render('confirm-details', data)
 });
 
 // Route thank you page
 router.get('/dashboard-appellant', function (req, res) {
-  res.render('dashboard-appellant', thumbnails);
+  res.render('dashboard-appellant', tdata);
 });
 
 // Route thank you page
 router.get('/dashboard-validator', function (req, res) {
-  res.render('dashboard-validator');
+  res.render('dashboard-validator', data);
 });
 
-// Route thank you page
-// router.get('/thank-s
 // Route placeholder page
 router.get('/place-holder', function (req, res) {
   res.render('place-holder')

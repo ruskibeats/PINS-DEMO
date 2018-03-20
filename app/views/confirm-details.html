@@ -6,189 +6,204 @@
 
 {% block content %}
 <main id="content" role="main">
-	{% include 'components/progress-bar.html' %}
+	<div class="acp-form-container" data-progress="8">
+		{% include 'components/progress-bar.html' %}
 
-	<div class="grid-row">
-		<div class="column-full">
-			<header>
-				<h2 class="heading-large">Please check your information</h2>
-				<p>Please ensure all of your information is correct before submitting</p>
-			</header>
-			<div class="step-container in show" data-index="3">
-				<form action="/thank-you" method="get" class="form">
-					<h2 class="heading-medium">Personal details</h2>
+		<div class="grid-row">
+			<div class="column-full">
+				<header>
+					<h2 class="heading-large">Please check your information</h2>
+					<p>Please ensure all of your information is correct before submitting</p>
+				</header>
 
-					<div class="form-group">
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+						Message to alert the user to a problem goes here
+					</h2>
+
+					<p>Optional description of the errors and how to correct them</p>
+
+					<ul class="error-summary-list">
+						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+					</ul>
+				</div>
+
+				<div class="step-container in show" data-index="3">
+					<form action="/thank-you" method="get" class="form">
+						<h2 class="heading-medium">Personal details</h2>
+
+						<div class="form-group">
+							<dl class="govuk-check-your-answers cya-questions-short">
+								<div>
+									<dt class="cya-question">
+										Appeal date
+									</dt>
+									<dd class="cya-answer">
+										{{data['date']}}
+									
+										{{data['lpa-date']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/date-lpa">
+										Change<span class="visually-hidden"> appeal date</span>
+										</a>
+									</dd>
+								</div>
+								<div>
+									<dt class="cya-question">
+										Applicant name
+									</dt>
+									<dd class="cya-answer">
+										{{data['first-name']}} {{data['surname']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> applicant name</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Company name
+									</dt>
+									<dd class="cya-answer">
+										{{data['company-name']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> company name</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Address
+									</dt>
+									<dd class="cya-answer">
+										{% if data['address-line-1'] %}{{data['address-line-1']}},{% endif %}
+										{% if data['address-line-1'] %}{{data['address-line-2']}},{% endif %}
+										{% if data['address-line-1'] %}{{data['address-city']}}{% endif %}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> address</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Postcode
+									</dt>
+									<dd class="cya-answer">
+										{{data['postcode']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> postcode</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Email
+									</dt>
+									<dd class="cya-answer">
+										{{data['email']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> email</span>
+										</a>
+									</dd>
+								</div>
+								<div>
+									<dt class="cya-question">
+										Daytime telephone
+									</dt>
+									<dd class="cya-answer">
+										{{data['daytime-telephone']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> daytime telephone</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Fax
+									</dt>
+									<dd class="cya-answer">
+										{{data['fax']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> fax</span>
+										</a>
+									</dd>
+								</div>
+
+								<div>
+									<dt class="cya-question">
+										Would like to be contacted by
+									</dt>
+									<dd class="cya-answer">
+										{{data['contact-preference']}}
+									</dd>
+									<dd class="cya-change">
+										<a href="/form-step-b.html">
+										Change<span class="visually-hidden"> fax</span>
+										</a>
+									</dd>
+								</div>
+							</dl>
+						</div>
+
+						<h2 class="heading-medium">Uploaded documents</h2>
+
 						<dl class="govuk-check-your-answers cya-questions-short">
+							{% for thumbnail in thumbnails %}
 							<div>
 								<dt class="cya-question">
-									Appeal date
+									{{thumbnail.title}}
 								</dt>
 								<dd class="cya-answer">
-									{{data['date']}}
-								
-									{{data['lpa-date']}}
+									Uploaded document
+										{# <img src="{{thumbnail.src}}" alt=""> #}
 								</dd>
 								<dd class="cya-change">
-									<a href="/date-lpa">
-									Change<span class="visually-hidden"> appeal date</span>
+									<a href="/form-step-c.html">
+									Change<span class="visually-hidden"> document</span>
 									</a>
 								</dd>
 							</div>
-							<div>
-								<dt class="cya-question">
-									Applicant name
-								</dt>
-								<dd class="cya-answer">
-									{{data['first-name']}} {{data['surname']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> applicant name</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Company name
-								</dt>
-								<dd class="cya-answer">
-									{{data['company-name']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> company name</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Address
-								</dt>
-								<dd class="cya-answer">
-									{% if data['address-line-1'] %}{{data['address-line-1']}},{% endif %}
-									{% if data['address-line-1'] %}{{data['address-line-2']}},{% endif %}
-									{% if data['address-line-1'] %}{{data['address-city']}}{% endif %}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> address</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Postcode
-								</dt>
-								<dd class="cya-answer">
-									{{data['postcode']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> postcode</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Email
-								</dt>
-								<dd class="cya-answer">
-									{{data['email']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> email</span>
-									</a>
-								</dd>
-							</div>
-							<div>
-								<dt class="cya-question">
-									Daytime telephone
-								</dt>
-								<dd class="cya-answer">
-									{{data['daytime-telephone']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> daytime telephone</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Fax
-								</dt>
-								<dd class="cya-answer">
-									{{data['fax']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> fax</span>
-									</a>
-								</dd>
-							</div>
-
-							<div>
-								<dt class="cya-question">
-									Would like to be contacted by
-								</dt>
-								<dd class="cya-answer">
-									{{data['contact-preference']}}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-b.html">
-									Change<span class="visually-hidden"> fax</span>
-									</a>
-								</dd>
-							</div>
+							{% endfor %}						
 						</dl>
-					</div>
 
-					<h2 class="heading-medium">Uploaded documents</h2>
-
-					<dl class="govuk-check-your-answers cya-questions-short">
-						{% for thumbnail in thumbnails %}
-						<div>
-							<dt class="cya-question">
-								{{thumbnail.title}}
-							</dt>
-							<dd class="cya-answer">
-								Uploaded document
-									{# <img src="{{thumbnail.src}}" alt=""> #}
-							</dd>
-							<dd class="cya-change">
-								<a href="/form-step-c.html">
-								Change<span class="visually-hidden"> document</span>
-								</a>
-							</dd>
+						<legend class="visuallyhidden">
+							Confirm information
+						</legend>
+				
+						<div class="form-group form-elem-container">			
+							<h2 class="heading-medium">Now send your application</h2>
+							<p class="text">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+							<div class="multiple-choice">
+								<input type="checkbox" id="confirm_correct" name="confirm_correct" data-rule-required="true">
+								<label class="form-label" for="confirm_correct">By checking this box I agree that the above information is correct.</label>
+							</div>
+							<span class="error-container"></span>						
 						</div>
-						{% endfor %}						
-					</dl>
 
-					<legend class="visuallyhidden">
-						Confirm information
-					</legend>
-			
-					<div class="form-group form-elem-container">			
-						<h2 class="heading-medium">Now send your application</h2>
-						<p class="text">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-						<div class="multiple-choice">
-							<input type="checkbox" id="confirm_correct" name="confirm_correct" data-rule-required="true">
-							<label class="form-label" for="confirm_correct">By checking this box I agree that the above information is correct.</label>
+						<div class="form-group">
+							<input type="submit" class="button" value="Send and subimt application">
 						</div>
-						<span class="error-container"></span>						
-					</div>
-
-					<div class="form-group">
-						<input type="submit" class="button" value="Send and subimt application">
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

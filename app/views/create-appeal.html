@@ -7,79 +7,93 @@
 {% block content %}
 
 <main id="content" role="main">
-	{% include 'components/progress-bar.html' %}
+	<div class="acp-form-container" data-progress="3">
+		{% include 'components/progress-bar.html' %}
 
-	<div class="grid-row">
-		<div class="column-full">
-			<header>
-				<h2 class="heading-large">Create appeal</h2>
-			</header>
+		<div class="grid-row">
+			<div class="column-two-thirds">
+				<header>
+					<h2 class="heading-large">Create appeal</h2>
+				</header>
 
-			<div class="content-block summary">
-				<h3 class="heading-medium">Please read the relevant guidance</h3>
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+						Message to alert the user to a problem goes here
+					</h2>
 
-				<div class="summary-info">
-					<h4 class="heading-medium">Summary</h4>
-					<p>This summary provides a brief introduction to information on the relevant guidance.</p>
+					<p>Optional description of the errors and how to correct them</p>
+
+					<ul class="error-summary-list">
+						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+					</ul>
 				</div>
 
-				<ul class="list">
-					<li>
-						<a href="#">Guidance doc one</a>
-					</li>
-					<li>
-						<a href="#">Guidance doc two</a>
-					</li>
-					<li>
-						<a href="#">Guidance doc three</a>
-					</li>
-				</ul>
-			</div>
+				<div class="content-block summary">
+					<h3 class="heading-medium">Please read the relevant guidance</h3>
 
-			<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
-				<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
-					Message to alert the user to a problem goes here
-				</h2>
-
-				<p>
-					Optional description of the errors and how to correct them
-				</p>
-
-				<ul class="error-summary-list">
-					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
-				</ul>
-			</div>
-
-			<form action="/login" method="get" class="form">
-				<div class="form-group form-elem-container">
-					<fieldset class="">
-						<legend class="heading-medium">Create an appeal?</legend>
-
-						<div class="multiple-choice">
-							<input id="appealTrue" type="radio" name="appeal" value="true" data-rule-required="true">
-							<label for="appealTrue">Yes</label>
-						</div>
-
-						<div class="multiple-choice">
-							<input id="appealFalse" type="radio" name="appeal" value="false" data-rule-required="true">
-							<label for="appealFalse">No</label>
-						</div>
-						<span class="error-container"></span>
-					</fieldset>
-				</div>
-
-				<div class="form-group form-elem-container">			
-						<div class="multiple-choice">
-							<input type="checkbox" id="confirm_read_guidance" name="confirm_read_guidance" data-rule-required="true">
-							<label class="form-label" for="confirm_read_guidance">By checking this box I agree that I have read the above information.</label>
-						</div>
-						<span class="error-container"></span>						
+					<div class="summary-info">
+						<h4 class="heading-medium">Summary</h4>
+						<p>This summary provides a brief introduction to information on the relevant guidance.</p>
 					</div>
 
-				<div class="form-group">
-					<input type="submit" class="button" value="Continue">
+					<ul class="list">
+						<li>
+							<a href="#">Guidance doc one</a>
+						</li>
+						<li>
+							<a href="#">Guidance doc two</a>
+						</li>
+						<li>
+							<a href="#">Guidance doc three</a>
+						</li>
+					</ul>
 				</div>
-			</form>
+
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+						Message to alert the user to a problem goes here
+					</h2>
+
+					<p>
+						Optional description of the errors and how to correct them
+					</p>
+
+					<ul class="error-summary-list">
+						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+					</ul>
+				</div>
+
+				<form action="/login" method="get" class="form">
+					<div class="form-group form-elem-container">
+						<fieldset class="">
+							<legend class="heading-medium">Create an appeal?</legend>
+
+							<div class="multiple-choice">
+								<input id="appealTrue" type="radio" name="appeal" value="true" data-rule-required="true">
+								<label for="appealTrue">Yes</label>
+							</div>
+
+							<div class="multiple-choice">
+								<input id="appealFalse" type="radio" name="appeal" value="false" data-rule-required="true">
+								<label for="appealFalse">No</label>
+							</div>
+							<span class="error-container"></span>
+						</fieldset>
+					</div>
+
+					<div class="form-group form-elem-container">			
+							<div class="multiple-choice">
+								<input type="checkbox" id="confirm_read_guidance" name="confirm_read_guidance" data-rule-required="true">
+								<label class="form-label" for="confirm_read_guidance">By checking this box I agree that I have read the above information.</label>
+							</div>
+							<span class="error-container"></span>						
+						</div>
+
+					<div class="form-group">
+						<input type="submit" class="button" value="Continue">
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </main>

@@ -7,119 +7,134 @@
 {% block content %}
 
 <main id="content" role="main">
+	<div class="acp-form-container" data-progress="6">
+		{% include 'components/progress-bar.html' %}
 
-	<div class="grid-row">
-		<div class="column-full">
-			<header>
-				<h2 class="heading-large">Appellant details</h2>
-			</header>
+		<div class="grid-row">
+			<div class="column-full">
+				<header>
+					<h2 class="heading-large">Appellant details</h2>
+				</header>
 
-			<form action="/confirm-details" method="get" class="form">
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+						Message to alert the user to a problem goes here
+					</h2>
 
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="person-name">First name</label>
-					<input class="form-control" id="person-name" name="first-name" type="text" value="{{data['first-name']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
+					<p>Optional description of the errors and how to correct them</p>
+
+					<ul class="error-summary-list">
+						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+					</ul>
 				</div>
 
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="surname">Surname</label>
-					<input class="form-control" id="surname" name="surname" type="text" value="{{data['surname']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
+				<form action="/confirm-details" method="get" class="form">
 
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="company-name">Company</label>
-					<input class="form-control" id="company-name" name="company-name" type="text" value="{{data['company-name']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="address-line-1">Address line 1</label>
-					<input class="form-control" id="address-line-1" name="address-line-1" type="text" value="{{data['address-line-1']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="address-line-2">Address line 2</label>
-					<input class="form-control" id="address-line-2" name="address-line-2" type="text" value="{{data['address-line-2']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="address-city">City</label>
-					<input class="form-control" id="address-city" name="address-city" type="text" value="{{data['address-city']}}" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="postcode">Postcode</label>
-					<input class="form-control" id="postcode" name="postcode" type="text" value="{{data['postcode']}}" data-rule-required="true" data-rule-postcodeUK="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="email">Email</label>
-					<input class="form-control" id="email" name="email" type="text" value="{{data['email']}}" data-rule-required="true" data-rule-email="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="daytime-telephone">Daytime telephone</label>
-					<input class="form-control" id="daytime-telephone" name="daytime-telephone" type="numeric" value="{{data['daytime-telephone']}}" data-rule-phonesUK="true" data-rule-required="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="fax">Fax</label>
-					<input class="form-control" id="fax" name="fax" type="numeric" pattern="" value="{{data['fax']}}" data-rule-number="true"> 
-					<span class="error-container"></span>
-				</div>
-
-				<div class="form-group form-elem-container">
-					<label class="form-label" for="contact-preference">How would you prefer to be contacted?</label>				
-					<div class="multiple-choice">
-						<input id="contactPreferenceEmail" type="radio" name="contact-preference" value="Email" data-rule-required="true" {% if data['contact-preference'] == 'Email' %}checked{% endif %}>
-						<label for="contactPreferenceEmail">Email</label>
-					</div>
-
-					<div class="multiple-choice">
-						<input id="contactPreferencePhone" type="radio" name="contact-preference" value="Phone" value="{{data['contact-preference']}}" data-rule-required="true" {% if data['contact-preference'] == 'Phone' %}checked{% endif %}>
-						<label for="contactPreferencePhone">Phone</label>
-					</div>
-				</div>
-
-				{# <div class="form-group form-elem-container">
-					<div class="form-date">
-						<label class="form-label" for="date">Date</label>
-						<input class="form-control datepicker" id="date" name="date" type="text" value="{{data['date']}}" data-rule-required="true">
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="person-name">First name</label>
+						<input class="form-control" id="person-name" name="first-name" type="text" value="{{data['first-name']}}" data-rule-required="true"> 
 						<span class="error-container"></span>
 					</div>
-				</div> #}
 
-				{# <div class="form-group form-elem-container">
-					<div class="form-date">
-						<div class="form-group form-group-day">
-							<label class="form-label" for="day">Day</label>
-							<input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{data['day']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="surname">Surname</label>
+						<input class="form-control" id="surname" name="surname" type="text" value="{{data['surname']}}" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="company-name">Company</label>
+						<input class="form-control" id="company-name" name="company-name" type="text" value="{{data['company-name']}}" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="address-line-1">Address line 1</label>
+						<input class="form-control" id="address-line-1" name="address-line-1" type="text" value="{{data['address-line-1']}}" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="address-line-2">Address line 2</label>
+						<input class="form-control" id="address-line-2" name="address-line-2" type="text" value="{{data['address-line-2']}}" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="address-city">City</label>
+						<input class="form-control" id="address-city" name="address-city" type="text" value="{{data['address-city']}}" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="postcode">Postcode</label>
+						<input class="form-control" id="postcode" name="postcode" type="text" value="{{data['postcode']}}" data-rule-required="true" data-rule-postcodeUK="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="email">Email</label>
+						<input class="form-control" id="email" name="email" type="text" value="{{data['email']}}" data-rule-required="true" data-rule-email="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="daytime-telephone">Daytime telephone</label>
+						<input class="form-control" id="daytime-telephone" name="daytime-telephone" type="numeric" value="{{data['daytime-telephone']}}" data-rule-phonesUK="true" data-rule-required="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="fax">Fax</label>
+						<input class="form-control" id="fax" name="fax" type="numeric" pattern="" value="{{data['fax']}}" data-rule-number="true"> 
+						<span class="error-container"></span>
+					</div>
+
+					<div class="form-group form-elem-container">
+						<label class="form-label" for="contact-preference">How would you prefer to be contacted?</label>				
+						<div class="multiple-choice">
+							<input id="contactPreferenceEmail" type="radio" name="contact-preference" value="Email" data-rule-required="true" {% if data['contact-preference'] == 'Email' %}checked{% endif %}>
+							<label for="contactPreferenceEmail">Email</label>
 						</div>
-						<div class="form-group form-group-month">
-							<label class="form-label" for="month">Month</label>
-							<input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{data['month']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
-						</div>
-						<div class="form-group form-group-year">
-							<label class="form-label" for="year">Year</label>
-							<input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{data['year']}}" data-rule-required="true" data-rule-minlength="4" data-rule-maxlength="4">
+
+						<div class="multiple-choice">
+							<input id="contactPreferencePhone" type="radio" name="contact-preference" value="Phone" value="{{data['contact-preference']}}" data-rule-required="true" {% if data['contact-preference'] == 'Phone' %}checked{% endif %}>
+							<label for="contactPreferencePhone">Phone</label>
 						</div>
 					</div>
-					<span class="error-container"></span>
-				</div> #}
 
-				
-				<div class="form-group">
-					<input type="submit" class="button" value="Save and continue">
-				</div>
-			</form>
+					{# <div class="form-group form-elem-container">
+						<div class="form-date">
+							<label class="form-label" for="date">Date</label>
+							<input class="form-control datepicker" id="date" name="date" type="text" value="{{data['date']}}" data-rule-required="true">
+							<span class="error-container"></span>
+						</div>
+					</div> #}
+
+					{# <div class="form-group form-elem-container">
+						<div class="form-date">
+							<div class="form-group form-group-day">
+								<label class="form-label" for="day">Day</label>
+								<input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{data['day']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-month">
+								<label class="form-label" for="month">Month</label>
+								<input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{data['month']}}" data-rule-required="true" data-rule-minlength="2" data-rule-maxlength="2">
+							</div>
+							<div class="form-group form-group-year">
+								<label class="form-label" for="year">Year</label>
+								<input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{data['year']}}" data-rule-required="true" data-rule-minlength="4" data-rule-maxlength="4">
+							</div>
+						</div>
+						<span class="error-container"></span>
+					</div> #}
+
+					
+					<div class="form-group">
+						<input type="submit" class="button" value="Save and continue">
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </main>

@@ -7,36 +7,51 @@
 {% block content %}
 
 <main id="content" role="main">
+	<div class="acp-form-container" data-progress="4">
+		{% include 'components/progress-bar.html' %}
 
-	<div class="grid-row">
-		<div class="column-full">
-		<header>
-			<h2 class="heading-large">Are you the appellant?</h2>
-		</header>
+		<div class="grid-row">
+			<div class="column-two-thirds">
+			<header>
+				<h2 class="heading-large">Are you the appellant?</h2>
+			</header>
 
-		<form action="/form-step-a" method="get" class="form">
-			<div class="form-group form-elem-container">
-				<fieldset class="">
-					<legend class="visually-hidden">Please choose from the following</legend>
+			<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+				<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+					Message to alert the user to a problem goes here
+				</h2>
 
-					<div class="multiple-choice">
-						<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true">
-						<label for="registeredTrue">Yes I am the appellant</label>
-					</div>
+				<p>Optional description of the errors and how to correct them</p>
 
-					<div class="multiple-choice">
-						<input id="registeredFalse" type="radio" name="registered" value="false" data-rule-required="true">
-						<label for="registeredFalse">No I am an agent</label>
-					</div>
-					<span class="error-container"></span>
-				</fieldset>
+				<ul class="error-summary-list">
+					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+				</ul>
 			</div>
 
-			<div class="form-group">
-				<input type="submit" class="button" value="Continue">
+			<form action="/form-step-a" method="get" class="form">
+				<div class="form-group form-elem-container">
+					<fieldset class="">
+						<legend class="visually-hidden">Please choose from the following</legend>
+
+						<div class="multiple-choice">
+							<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true">
+							<label for="registeredTrue">Yes I am the appellant</label>
+						</div>
+
+						<div class="multiple-choice">
+							<input id="registeredFalse" type="radio" name="registered" value="false" data-rule-required="true">
+							<label for="registeredFalse">No I am an agent</label>
+						</div>
+						<span class="error-container"></span>
+					</fieldset>
+				</div>
+
+				<div class="form-group">
+					<input type="submit" class="button" value="Continue">
+				</div>
+			</form>
+			
 			</div>
-		</form>
-		
 		</div>
 	</div>
 </main>

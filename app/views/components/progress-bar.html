@@ -1,13 +1,11 @@
-{# <div class="grid-row">
-		<div class="column-full">
-            <div class="progress-bar">
-                {% for step in steps %}
-                    <div class="progress-step{% if step.className %} {{ step.className }}{% endif %}" id="{{ step.id }}" index="{{loop.index}}">
-                        {{ step.label }}
-                    </div>
-                {% endfor %}
-            </div>
+<div class="grid-row">
+    <div class="column-full">
+        <div class="progress-bar">
+            {% for step in progress %}
+                <div class="progress-step" id="{{ step.id }}" index="{{loop.index}}">
+                    <p>Step {{ step.id }} of {{ loop.length }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
-         #}

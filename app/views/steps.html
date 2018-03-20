@@ -13,7 +13,7 @@
 		<div class="column-full">
 			{{ data | dump | safe }}			
 			{% for step in steps %}
-				<div class="step-container{% if step.className %} {{ step.className }}{% endif %}" data-index="{{loop.index}}">
+				<div class="{% if step.className %} {{ step.className }}{% endif %}" data-index="{{loop.index}}">
 					<header>
 						<h2 class="heading-large">{{ step.title }}</h2>
 					</header>
