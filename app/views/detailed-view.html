@@ -14,8 +14,7 @@
 		<div class="grid-row">
 			<div class="column-full">
 				<header>
-					<h2 class="heading-large">Please check your information</h2>
-					<p>Please ensure all of your information is correct before submitting</p>
+					<h2 class="heading-large">Your application Ref M123</h2>
 				</header>
 
 				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
@@ -28,13 +27,6 @@
 					<ul class="error-summary-list">
 						<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
 					</ul>
-				</div>
-
-				<div class="summary-info">
-					<p>Any documents uploaded with the appeal should be directly relevant and essential to the case and in response to the reasons for refusal (if any). Revised proposals which seek to overcome the LPA’s reasons for refusal should normally be sent to the LPA as a new application.</p>
-					<p>There is limited scope to consider revised proposals at the appeal stage. If exceptionally you want to put forward revised proposals at the appeal stage, you should send them with the appeal documents. Late submission can cause delays and lead to a claim for costs. If you send revised plans when making your appeal, the inspector will decide whether or not to consider them in line with the tests laid down by the Courts in Wheatcroft v SSE [Journal off Planning Law, 1982, P37]. These require that any amendments do not materially alter the nature of the application, and that no one who would normally have been consulted would be prejudiced by the lack of opportunity to comment on the revised plans. These tests would not normally be met by conducting informal consultation exercises.</p>
-					<p>For further information, please see Annexe M of our <a href="https://www.gov.uk/government/publications/planning-appeals-procedural-guide" target="_blank"> &quot;Procedural Guide: Planning appeals - England - 31 July 2015&quot;:</a></p>
-</p>
 				</div>
 
 				<div class="step-container in show" data-index="3">
@@ -53,9 +45,9 @@
 										{{data['lpa-date']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/date-lpa">
+										{# <a href="/date-lpa">
 										Change<span class="visually-hidden"> appeal date</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 								<div>
@@ -66,9 +58,9 @@
 										{{data['first-name']}} {{data['surname']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> applicant name</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -80,9 +72,9 @@
 										{{data['company-name']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> company name</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -96,9 +88,9 @@
 										{% if data['address-line-1'] %}{{data['address-city']}}{% endif %}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> address</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -110,9 +102,9 @@
 										{{data['postcode']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> postcode</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -124,9 +116,9 @@
 										{{data['email']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> email</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 								<div>
@@ -137,9 +129,9 @@
 										{{data['daytime-telephone']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> daytime telephone</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -151,9 +143,9 @@
 										{{data['fax']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> fax</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 
@@ -165,9 +157,9 @@
 										{{data['contact-preference']}}
 									</dd>
 									<dd class="cya-change">
-										<a href="/form-step-b.html">
+										{# <a href="/form-step-b.html">
 										Change<span class="visually-hidden"> fax</span>
-										</a>
+										</a> #}
 									</dd>
 								</div>
 							</dl>
@@ -183,7 +175,6 @@
 								</dt>
 								<dd class="cya-answer">
 									Uploaded document
-										{# <img src="{{thumbnail.src}}" alt=""> #}
 								</dd>
 								<dd class="cya-change">
 									<a href="/form-step-c.html">
@@ -192,33 +183,7 @@
 								</dd>
 							</div>
 							{% endfor %}				
-						</dl>
-
-						<legend class="visuallyhidden">
-							Confirm information
-						</legend>
-				
-						<div class="form-group form-elem-container">			
-							<h2 class="heading-medium">Now send your application</h2>
-							<p class="text">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-							<div class="multiple-choice">
-								<input type="checkbox" id="confirm_correct" name="confirm_correct" data-rule-required="true">
-								<label class="form-label" for="confirm_correct">Please tick the box to confirm the following actions have been carried out.</label>
-							</div>
-							<span class="error-container"></span>						
-						</div>
-
-						
-						<ol>
-							<li>I have completed all sections of the form and the details of the ownership (section I one and I two) are correct to the best of my knowledge.</li>
-							<li>I have enclosed all the essential supporting documents listed in section J.</li>
-							<li>I have sent a copy of this appeal form and relevant documents to the LPA (if you fo not, we will not accept your appeal).</li>
-							<li>I have signed and dated the form (unsigned forms will be returned to you).</li>
-						</ol>
-
-						<div class="form-group">
-							<input type="submit" class="button" value="Send and subimt application">
-						</div>
+						</dl>						
 					</form>
 				</div>
 			</div>

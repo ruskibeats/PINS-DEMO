@@ -229,5 +229,10 @@ router.get('/place-holder', function (req, res) {
   res.render('place-holder')
 })
 
+// Route your application
+router.get('/your-application', function (req, res) {
+  res.render('your-application', data)
+})
+
 
 module.exports = router
