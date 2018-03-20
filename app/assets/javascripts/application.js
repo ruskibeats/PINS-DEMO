@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     $('input[class^="fileupload"]').each(function () {
       $(this).rules('add', {
-          accept: "image/jpeg, image/png"
+          accept: "image/jpeg, image/jpg, image/png, image/gif, application/pdf, application/msword"
       })
     })
 });
