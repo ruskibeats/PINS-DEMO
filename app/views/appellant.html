@@ -7,6 +7,8 @@
 {% block content %}
 
 <main id="content" role="main">
+	{% include 'components/top-bar.html' %}
+
 	<div class="acp-form-container" data-progress="5">
 		{% include 'components/progress-bar.html' %}
 
@@ -26,6 +28,11 @@
 				<ul class="error-summary-list">
 					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
 				</ul>
+			</div>
+
+			<div class="summary-info">
+				<p>You do not have to employ an agent to handle your appeal. If you decide to employ an agent he or she will probably complete the appeal form for you.</p>
+				<p>If you have an agent we will send all of our communications to them. We will not send a copy to you. You should ensure that you keep in touch with your agent abut the appeal arrangements particularly times and dates for a site visit, a hearing or an inquiry.</p>
 			</div>
 
 			<form action="/form-step-a" method="get" class="form">

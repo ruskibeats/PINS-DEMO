@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Step C
+  Create appeal
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
+	{% include 'components/top-bar.html' %}
+
 	<div class="acp-form-container" data-progress="4">
 		{% include 'components/progress-bar.html' %}
 
@@ -28,22 +30,18 @@
 					</ul>
 				</div>
 
-				<img src="/public/images/appeal-letter.png" alt="" />				
-
 				<div class="content-block summary">
 					<h3 class="heading-medium">Please read the relevant guidance</h3>
 
 					<div class="summary-info">
 						<h4 class="heading-medium">Summary</h4>
-						<p>This summary provides a brief introduction to information on the relevant guidance.</p>
+						<p>Only the person who made the application can make an appeal.</p>
+						<p>You must provide your full statement of case (grounds of appeals if relating to a minor commercial-shop front) when making your appeal (please see Section H of the appeal form).</p>
+						<p>If you want to make an appeal in relation to more than one application e.g. in relation to an application for planning permission and an application for listed building consent, you must make a separate appeal for each.</p>
+						<p>Wherever possible you should make your appeal(s) on-line.</p>
 					</div>
-
-					<ul class="list">
-						<li>
-							<a href="#">Guidance doc one</a>
-						</li>
-					</ul>
 				</div>
+				<img src="/public/images/appeal-letter.png" alt="" />				
 
 				<form action="/login" method="get" class="form">
 					<div class="form-group form-elem-container">
@@ -76,8 +74,20 @@
 					</div>
 				</form>
 			</div>
+
+			<div class="column-third">
+				<h2 class="heading-medium">Guidance</h2>
+
+				<ul class="list">
+					<li>
+						<a href="#">Guidance doc one</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+
+	
 </main>
 
 {% endblock %}

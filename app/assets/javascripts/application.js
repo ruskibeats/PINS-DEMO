@@ -54,7 +54,28 @@ $(document).ready(function () {
       $(this).rules('add', {
           accept: "image/jpeg, image/jpg, image/png, image/gif, application/pdf, application/msword"
       })
+
+
     })
+
+    // $('input[class^="fileupload"]').on('click', function () {
+
+      // var reqlength = $('.required-entry').length;
+      // console.log(reqlength);
+      // var value = $('.required-entry').filter(function () {
+      //     return this.value != '';
+      // });
+  
+      // if (value.length>=0 && (value.length !== reqlength)) {
+      //     alert('Please fill out all required fields.');
+      // } else {
+      //     alert('Everything has a value.');
+      // }
+  // });
+
+  // if( document.getElementById("videoUploadFile").files.length == 0 ){
+  //   console.log("no files selected");
+  // }
 });
 
 $(document).ready(function () {

@@ -52,28 +52,31 @@ var data = {
   ],
   'reasons': [
     {
-      'title': 'Reason A'
+      'title': 'Refused planning permission for the development.'
     },
     {
-      'title': 'Reason B'
+      'title': 'Refused permission to vary or remove a condition(s).'
     },
     {
-      'title': 'Reason C'
+      'title': 'Refused prior approval of permitted development rights.'
     },
     {
-      'title': 'Reason D'
+      'title': 'Granted planning permission for the development subject to conditions to which you object.'
     },
     {
-      'title': 'Reason E'
+      'title': 'Refused approval of the matters reserved under an outline planning permission.'
     },
     {
-      'title': 'Reason F'
+      'title': 'Granted approval of the matters reserved under an outline planning permission subject to conditions to which you object.'
     },
     {
-      'title': 'Reason G'
+      'title': 'Refused to approve any matter required by a condition on a previous planning permission (other than those above).'
     },
     {
-      'title': 'Reason H'
+      'title': 'Failed to give notice of its decision within the appropriate period (usually 8 weeks) on an application for permission or approval.'
+    },
+    {
+      'title': 'Failed to give notice of its decision within the appropriate period because of a dispute over provision of local list documentation.'
     }
   ]
 }

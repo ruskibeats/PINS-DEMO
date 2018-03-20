@@ -7,6 +7,8 @@
 {% block content %}
 
 <main id="content" role="main">
+	{% include 'components/top-bar.html' %}
+
 	<div class="acp-form-container" data-progress="2">
 		{% include 'components/progress-bar.html' %}
 		<div class="grid-row">
@@ -29,17 +31,20 @@
 			</div>
 		</div>
 		<div class="grid-row">
-			<div class="content-block">
+			<div class="content-block column-full">
 				<div class="form-group form-elem-container">
+					<h3 class="heading-medium">The reason for the appeal is that the LPA has:</h3>
 					<legend class="visually-hidden">Choose one of the following</legend>
 
+					<ul>
 					{% for reason in reasons %}
-					<a href="/date-lpa" class="tile column-one-quarter">
-						<div class="tile-inner">
-							{{reason.title}}
-						</div>
-					</a>
+						<li>
+							<a href="/date-lpa" class="tile">
+								{{reason.title}}
+							</a>
+						</li>
 					{% endfor %}
+					</ul>
 				</div>
 			</div>
 		</div>

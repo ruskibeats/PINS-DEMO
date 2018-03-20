@@ -7,6 +7,7 @@
 {% block content %}
 
 <main id="content" role="main">
+	{% include 'components/top-bar.html' %}
 
 	<div class="grid-row">
 		<div class="acp-form-container" data-progress="6">
@@ -58,13 +59,16 @@
 						</div>
 					</div> #}
 
-					<ul class="list">
-						<li>Please do not upload the same document twice.</li>
-						<li>Files must not exceed 128 megabytes</li>
-						<li>Documents must be legible</li>
-						<li>Must be in the format of jpg, png, word, or pdf</li>
-						<li>Please name files concisely manner</li>
-					</ul>
+					<div class="summary-info">
+						<p>Any supporting documentation rather than that listed in Section J should be kept to a minimum and be essential and directly relevant to the appeal. Such documentation should be clearly cross-referenced in the full statement of case and must be provided when you make your appeal.</p>
+
+						<p>You may provide appendices to your full statement of case. These include reports and information that relate directly to the reasons for refusal and any issues that are in dispute. Appendices should be used sparingly and they must be sent with your full statement of case.</p>
+
+						<p>You need to remember that there is no opportunity later in the appeals process for you to send further information.</p>
+
+						<p>Do not send copies of the Delegated Officer's Report, or the Committee Report, and other documents sent to the LPA, such as consultation responses and letters from interested people, as the LPA will provide these. You may use photographs (preferably colour) to illustrate your full statement of case - e.g. to show your house and its relationship to its neighbours. If you send photographs you must give details of where they are taken on a map showing the viewpoints, and when and what they show. If you take photographs in public places please take reasonable care to respect the privacy of individuals whose images you may inadvertently capture.</p>
+						
+					</div>
 
 					<div class="form-group form-elem-container">			
 						<div class="multiple-choice">
