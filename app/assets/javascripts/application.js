@@ -102,12 +102,23 @@ $(document).ready(function () {
 
   $(function () {
     $('.select-plan').each(function () {
-        var $this = $(this);
+        var $this = $(this),
+            $action = $this.parents('.plan-upload').find('.add-plan');
+
         $this.next('.text-hint').hide();
 
         $this.on('change', function () {
-          console.log('fire');
+          var $value = $this.val();
+
           $this.parent('.form-group').find('.text-hint').show();
+
+          console.log($value);
+
+          if ($value === 'select-plan-a') {
+            $action.hide();
+          } else {
+            $action.show();            
+          }
         });
     });
   });

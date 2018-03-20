@@ -171,26 +171,103 @@
 							</dl>
 						</div>
 
-						<h2 class="heading-medium">Uploaded documents</h2>
+						<h2 class="heading-large">Uploaded documents</h2>
 
-						<dl class="govuk-check-your-answers cya-questions-short">
-							{% for thumbnail in thumbnails %}
-							<div>
-								<dt class="cya-question">
-									{{thumbnail.title}}
-								</dt>
-								<dd class="cya-answer">
-									Uploaded document
-										{# <img src="{{thumbnail.src}}" alt=""> #}
-								</dd>
-								<dd class="cya-change">
-									<a href="/form-step-c.html">
-									Change<span class="visually-hidden"> document</span>
-									</a>
-								</dd>
-							</div>
-							{% endfor %}				
-						</dl>
+						{% if thumbnails.plans_a %}
+							<h2 class="heading-medium">Plans on which LPA made it's decision</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Document</th>
+										<th>File name</th>
+										<th>Description</th>
+										<th>Edit</th>
+									</tr>
+								</thead>
+								{% for thumbnail in thumbnails.plans_a %}
+								<tr>
+									<td>
+										<img src="{{thumbnail.src}}" alt="">
+									</td>
+									<td>
+										{{thumbnail.title}} 
+									</td>
+									<td>
+										{{thumbnail.desc}}
+									</td>
+									<td>
+										<a href="/form-step-c.html">
+										Change<span class="visually-hidden"> document</span>
+										</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</table>
+						{% endif %}
+
+						{% if thumbnails.plans_b %}
+							<h2 class="heading-medium">Originally submitted plan</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Document</th>
+										<th>File name</th>
+										<th>Description</th>
+										<th>Edit</th>
+									</tr>
+								</thead>
+								{% for thumbnail in thumbnails.plans_b %}
+								<tr>
+									<td>
+										<img src="{{thumbnail.src}}" alt="">
+									</td>
+									<td>
+										{{thumbnail.title}} 
+									</td>
+									<td>
+										{{thumbnail.desc}}
+									</td>
+									<td>
+										<a href="/form-step-c.html">
+										Change<span class="visually-hidden"> document</span>
+										</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</table>
+						{% endif %}
+
+						{% if thumbnails %}
+							<h2 class="heading-medium">Any other plans</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Document</th>
+										<th>File name</th>
+										<th>Description</th>
+										<th>Edit</th>
+									</tr>
+								</thead>
+								{% for thumbnail in thumbnails.plans_c %}
+								<tr>
+									<td>
+										<img src="{{thumbnail.src}}" alt="">
+									</td>
+									<td>
+										{{thumbnail.title}} 
+									</td>
+									<td>
+										{{thumbnail.desc}}
+									</td>
+									<td>
+										<a href="/form-step-c.html">
+										Change<span class="visually-hidden"> document</span>
+										</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</table>
+						{% endif %}
 
 						<legend class="visuallyhidden">
 							Confirm information

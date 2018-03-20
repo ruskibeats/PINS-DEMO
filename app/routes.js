@@ -3,24 +3,42 @@ const router = express.Router()
 
 // Variables
 var data = {
-  'thumbnails': [
-    {
+  'thumbnails': {
+    'plans_a' : [{
       'src': 'http://placehold.it/75x75/',
-      'title': 'site_plan_IMG_A.png'
+      'title': 'site_plan_IMG_A.png',
+      'desc': 'Site plan'
     },
     {
       'src': 'http://placehold.it/75x75/',
-      'title': 'floor_plans_IMG_B.pdf'
-    },
-    {
-      'src': 'http://placehold.it/75x75/',
-      'title': 'other_IMG_C.doc'
-    },
-    {
-      'src': 'http://placehold.it/75x75/',
-      'title': 'layout_plan_IMG_D.gif'
+      'title': 'floor_plans_IMG_B.pdf',
+      'desc': 'Floor plan existing'
+      
     }
   ],
+  'plans_b': [{
+      'src': 'http://placehold.it/75x75/',
+      'title': 'other_IMG_C.doc',
+      'desc': 'Floor plan proposed'
+      
+    },
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'layout_plan_IMG_D.gif',
+      'desc': 'Site plan'
+    }],
+    'plans_c': [{
+      'src': 'http://placehold.it/75x75/',
+      'title': 'other_IMG_C.doc',
+      'desc': 'Floor plan proposed'
+      
+    },
+    {
+      'src': 'http://placehold.it/75x75/',
+      'title': 'layout_plan_IMG_D.gif',
+      'desc': 'Site plan'
+    }]
+  },
   'progress': [
     {
       'id': '1'
@@ -213,6 +231,11 @@ router.get('/form-step-c', function (req, res) {
 // Route thank you page
 router.get('/confirm-details', function (req, res) {
   res.render('confirm-details', data)
+});
+
+// Route thank you page
+router.get('/detailed-view', function (req, res) {
+  res.render('detailed-view', data)
 });
 
 // Route thank you page
