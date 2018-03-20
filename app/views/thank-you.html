@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Step example
+  Thank you
 {% endblock %}
 
 {% block content %}
@@ -10,26 +10,30 @@
 	{% include 'components/progress-bar.html' %}
 
 	<div class="grid-row">
-		<div class="column-full">
-		
-			{% for step in steps %}
-			{% if loop.last %}			
-				{# {% if loop.length == loop.index %} #}
-				<div class="step-container{% if steps[0].className %} {{ steps[0].className }}{% endif %}" data-index="{{loop.index}}">
-					<header>
-						<h2 class="heading-large">{{ step[0].title }}</h2>
-					</header>
-					<div class="step-content">
-						{{ steps[0].content }}
-					</div>
-								
-					{% include "components/step-d.html" %}
-						
-				</div>
-				{% endif %}
-			{% endfor %}
-		</div>
-	</div>
+    <div class="column-two-thirds">
+
+      <div class="govuk-box-highlight">
+        <h1 class="heading-xlarge">
+          Application complete
+        </h1>
+        <p class="font-large">
+          Your reference number is <br>
+          <strong class="bold">M123</strong>
+        </p>
+      </div>
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>We've sent your application to be assessed by our team.</p>
+      <p>They will contact you either to confirm your registration, or to ask for more information.</p>
+      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
+
+
+    </div>
+  </div>
 </main>
 
 {% endblock %}

@@ -133,6 +133,20 @@
 									</a>
 								</dd>
 							</div>
+
+							<div>
+								<dt class="cya-question">
+									Would like to be contacted by
+								</dt>
+								<dd class="cya-answer">
+									{{data['contact-preference']}}
+								</dd>
+								<dd class="cya-change">
+									<a href="/form-step-b.html">
+									Change<span class="visually-hidden"> fax</span>
+									</a>
+								</dd>
+							</div>
 						</dl>
 					</div>
 
@@ -165,8 +179,8 @@
 						<h2 class="heading-medium">Now send your application</h2>
 						<p class="text">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 						<div class="multiple-choice">
-							<input type="checkbox" id="confirm" name="confirm" data-rule-required="true">
-							<label class="form-label" for="confirm">By checking this box I agree that the above information is correct.</label>
+							<input type="checkbox" id="confirm_correct" name="confirm_correct" data-rule-required="true">
+							<label class="form-label" for="confirm_correct">By checking this box I agree that the above information is correct.</label>
 						</div>
 						<span class="error-container"></span>						
 					</div>

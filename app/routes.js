@@ -192,7 +192,16 @@ router.get('/appellant', function (req, res) {
 
 // Route thank you page
 router.get('/confirm-details', function (req, res) {
-  res.render('confirm-details', thumbnails);
+  // res.render('confirm-details', thumbnails);
+  // var confirm_correct = req.query.confirm_correct
+
+  // if (confirm_correct === 'on') {
+  //   res.redirect('/thank-you')
+  // } else {
+  //   res.render('confirm-details')
+  // }
+  res.render('confirm-details')
+  
 });
 
 // Route thank you page
@@ -206,10 +215,7 @@ router.get('/dashboard-validator', function (req, res) {
 });
 
 // Route thank you page
-router.get('/thank-you', function (req, res) {
-  res.render('thank-you', data_steps);
-});
-
+// router.get('/thank-s
 // Route placeholder page
 router.get('/place-holder', function (req, res) {
   res.render('place-holder')

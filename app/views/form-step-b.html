@@ -79,12 +79,12 @@
 				<div class="form-group form-elem-container">
 					<label class="form-label" for="contact-preference">How would you prefer to be contacted?</label>				
 					<div class="multiple-choice">
-						<input id="contactPreferenceEmail" type="radio" name="contact-preference" value="email" data-rule-required="true">
+						<input id="contactPreferenceEmail" type="radio" name="contact-preference" value="Email" data-rule-required="true" {% if data['contact-preference'] == 'Email' %}checked{% endif %}>
 						<label for="contactPreferenceEmail">Email</label>
 					</div>
 
 					<div class="multiple-choice">
-						<input id="contactPreferencePhone" type="radio" name="contact-preference" value="Phone" data-rule-required="true">
+						<input id="contactPreferencePhone" type="radio" name="contact-preference" value="Phone" value="{{data['contact-preference']}}" data-rule-required="true" {% if data['contact-preference'] == 'Phone' %}checked{% endif %}>
 						<label for="contactPreferencePhone">Phone</label>
 					</div>
 				</div>
