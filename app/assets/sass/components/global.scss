@@ -61,4 +61,9 @@ ul {
             display: block;
         }        
     }
+    &.error-message {
+        &:after {
+            display: none;
+        }
+    }
 }
