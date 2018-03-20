@@ -199,8 +199,8 @@ router.get('/form-step-a', function (req, res) {
 router.get('/form-step-b', function (req, res) {
   res.render('form-step-b', data)
 });
-router.get('/form-step-b', function (req, res) {
-  res.render('form-step-b', data)
+router.get('/form-step-c', function (req, res) {
+  res.render('form-step-c', data)
 });
 
 // Route thank you page

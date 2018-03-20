@@ -112,8 +112,30 @@
 							</div>
 							<span class="error-container"></span>
 						</div>
-						
 					</div>
+
+
+					<div class="form-group form-elem-container">
+					<h2 class="heading-medium">Your uploaded documents</h2>
+					<table>
+					{% for thumbnail in thumbnails %}
+						<tr>
+							<td>
+								<img src="{{thumbnail.src}}" alt="">
+							</td>
+							<td>
+								{{thumbnail.title}}
+							</td>
+							<td>
+								<a href="#">
+								Remove<span class="visually-hidden"> document</span>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}		
+					</table>
+					</div>
+
 
 					{# <div class="form-group form-elem-container">
 						<div class="form-date">
