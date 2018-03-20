@@ -174,6 +174,7 @@ router.get('/enforcement-notice', function (req, res) {
     res.redirect('/place-holder')
   } else {
     res.redirect('/date-lpa')
+    // res.render('/enforcement-notice')
   }
 });
 
