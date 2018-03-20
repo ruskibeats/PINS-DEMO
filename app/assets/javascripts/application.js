@@ -72,15 +72,11 @@ $(document).ready(function () {
     
     $('.progress-step').removeClass('complete');
     $progressStepSelector.addClass('complete');
-    // $progressStepSelector.prevAll().addClass('complete');
   }
 });
 
 $(function () {
   $('.datepicker').datepicker({
-    // showOn: 'button',
-    // buttonImage: 'https://dequeuniversity.com/assets/images/calendar.png', // File (and file path) for the calendar image
-    // buttonImageOnly: false,
     buttonText: 'Calendar View',
     dayNamesShort: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
     showButtonPanel: true,
