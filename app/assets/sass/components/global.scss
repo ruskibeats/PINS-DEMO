@@ -32,30 +32,6 @@ ul {
     padding: 0.1em 0 0.1em 1em;
 }
 
-.fileupload {
-    position: relative;
-    &:after {
-        content: '\2713';
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 300px;
-        background-color: green;
-        color: #FFF;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        text-align: center;
-    }
-
-    &.uploaded {
-        &:after {
-            display: block;
-        }        
-    }
-    &.error-message {
-        &:after {
-            display: none;
-        }
-    }
+.add-plan{
+    margin-top: 20px;
 }
