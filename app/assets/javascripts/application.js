@@ -78,15 +78,29 @@ $(document).ready(function () {
 
 $(function () {
   $('.datepicker').datepicker({
-    showOn: 'button',
-    buttonImage: 'https://dequeuniversity.com/assets/images/calendar.png', // File (and file path) for the calendar image
-    buttonImageOnly: false,
+    // showOn: 'button',
+    // buttonImage: 'https://dequeuniversity.com/assets/images/calendar.png', // File (and file path) for the calendar image
+    // buttonImageOnly: false,
     buttonText: 'Calendar View',
     dayNamesShort: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
     showButtonPanel: true,
     closeText: 'Close'
-    // onClose: removeAria
+});
+
+$(function () {
+
+  function onSelect(dateText, inst) {
+    var pieces = dateText.split('/');
+    $('#day').val(pieces[0]);
+    $('#month').val(pieces[1]);
+    $('#year').val(pieces[2]);
+  };
+
+  $('.datepicker').click(function(event) {
+    var d = $('#day').val() + '/' + $('#month').val() + '/' + $('#year').val();
+    $(this).datepicker('dialog', d, onSelect, { dateFormat: 'dd/mm/yy' }, [10, 40]);
   });
+});
 
   // Add aria-describedby to the button referring to the label
   $('.ui-datepicker-trigger').attr('aria-describedby', 'datepickerLabel');
