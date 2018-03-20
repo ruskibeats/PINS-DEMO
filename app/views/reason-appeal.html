@@ -36,15 +36,30 @@
 					<h3 class="heading-medium">The reason for the appeal is that the LPA has:</h3>
 					<legend class="visually-hidden">Choose one of the following</legend>
 
-					<ul>
+					{# <ul> #}
+					<form action="/enforcement-notice" method="get" class="form">
+					<div class="form-group">
+					
 					{% for reason in reasons %}
-						<li>
+
+					<div class="multiple-choice">
+						<input id="stepB{{loop.index}}" type="radio" name="step" value="stepB" data-rule-required="true">
+						<label for="stepB{{loop.index}}">{{reason.title}}</label>
+					</div>
+
+						{# <li>
 							<a href="/date-lpa" class="tile">
 								{{reason.title}}
 							</a>
-						</li>
+						</li> #}
 					{% endfor %}
-					</ul>
+					</div>
+
+					<div class="form-group">
+						<input type="submit" class="button" value="Save and continue">
+					</div>
+					</form>
+					{# </ul> #}
 				</div>
 			</div>
 		</div>
