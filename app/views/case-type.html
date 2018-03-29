@@ -34,14 +34,27 @@
 			<form action="/form-step-a" method="get" class="form">
 				<div class="form-group form-elem-container">
 					<label class="form-label visually-hidden" for="select-box-case-type">What type of plan is this document? </label>
-					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information for types of plan.</span></p>
-					<select class="form-control" id="select-box-case-type" name="select-box-case-type" data-rule-required="true">
-						<option value="">Please select</option>
-						<option value="select-plan-a"{% if data['select-box-case-type'] == 'select-plan-a' %} selected{% endif %}>Re-determination</option>
-						<option value="select-plan-b"{% if data['select-box-case-type'] == 'select-plan-b' %} selected{% endif %}>Failure</option>
-						<option value="select-plan-c"{% if data['select-box-case-type'] == 'select-plan-c' %} selected{% endif %}>Appeal against conditions (S.79)</option>
-						<option value="select-plan-d"{% if data['select-box-case-type'] == 'select-plan-d' %} selected{% endif %}>Appeal against conditions (S.73)</option>
-					</select>
+
+					<div class="multiple-choice">
+						<input id="caseTypeA" name="case-type" type="checkbox" value="case-type" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
+						<label for="caseTypeA">Re-determination<span class="form-hint">Adipisicing deserunt anim enim sint voluptate consectetur commodo.</span></label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="caseTypeB" name="case-type" type="checkbox" value="case-type" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
+						<label for="caseTypeB">Failure<span class="form-hint">Adipisicing deserunt anim enim sint voluptate consectetur commodo.</span></label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="caseTypeC" name="case-type" type="checkbox" value="case-type" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
+						<label for="caseTypeC">Appeal against conditions (S.73)<span class="form-hint">Adipisicing deserunt anim enim sint voluptate consectetur commodo.</span></label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="caseTypeD" name="case-type" type="checkbox" value="case-type" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
+						<label for="caseTypeD">Appeal against conditions (S.79)<span class="form-hint">Adipisicing deserunt anim enim sint voluptate consectetur commodo.</span></label>
+					</div>
+
 					<span class="error-container"></span>
 				</div>
 
@@ -105,17 +118,25 @@
 					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information on reasons for refusal.</span></p>					
 					<div class="multiple-choice">
 						<input id="refusalA" type="radio" name="refusal" value="refusalA" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
-						<label for="refusalA">Living Conditions: sunlight/daylight; privacy/overlooking; smell/fumes; overshadowing; overbearing; visual impact; amenity space, health fears; noise; outlook</label>
+							<label for="refusalA">Living Conditions: 
+							<span class="form-hint">sunlight/daylight; privacy/overlooking; smell/fumes; overshadowing; overbearing; visual impact; amenity space, health fears; noise; outlook</span>
+						</label>
 					</div>
 
 					<div class="multiple-choice">
 						<input id="refusalB" type="radio" name="refusal" value="refusalB" data-rule-required="true"{% if data['refusal'] == 'refusalB' %} checked{% endif %}>
-						<label for="refusalB">Agriculture: Occupancy/dwelling</label>
+						<label for="refusalB">
+							Agriculture:
+							<span class="form-hint">Occupancy/dwelling</span>
+						</label>
 					</div>
 
 					<div class="multiple-choice">
 						<input id="refusalC" type="radio" name="refusal" value="refusalC" data-rule-required="true"{% if data['refusal'] == 'refusalC' %} checked{% endif %}>
-						<label for="refusalC">Green Belt: Inappropriate development</label>
+						<label for="refusalC">
+							Green Belt:
+							<span class="form-hint">Inappropriate development</span>
+						</label>
 					</div>
 
 					<div class="multiple-choice">
@@ -125,7 +146,10 @@
 
 					<div class="multiple-choice">
 						<input id="refusalE" type="radio" name="refusal" value="refusalE" data-rule-required="true"{% if data['refusal'] == 'refusalE' %} checked{% endif %}>
-						<label for="refusalE">Character &amp; Appearance: Cramped, density, out of keeping/character; design; loss of trees.</label>
+						<label for="refusalE">
+							Character &amp; Appearance:
+							<span class="form-hint">Cramped, density, out of keeping/character; design; loss of trees.</span>
+						</label>
 					</div>
 
 					<div class="multiple-choice">
