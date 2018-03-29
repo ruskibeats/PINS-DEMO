@@ -172,7 +172,8 @@
 				</div>
 
 				<div class="form-group form-elem-container input-other-field">
-					<label class="form-label" for="reason-refusal-other">If other then please specify:</label>
+					<label class="form-label visually-hidden" for="reason-refusal-other">Reason for refusal other</label>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">If other then please specify:</span></p>
 					<input class="form-control" id="reason-refusal-other" name="reason-refusal-other" type="text" value="{% if data['reason-refusal-other'] %}{{data['reason-refusal-other']}}{% endif %}"> 
 					<span class="error-container"></span>
 				</div>
