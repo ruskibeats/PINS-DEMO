@@ -33,7 +33,8 @@
 
 			<form action="/form-step-a" method="get" class="form">
 				<div class="form-group form-elem-container">
-					<label class="form-label visually-hidden" for="select-box-case-type">What type of plan is this document?</label>
+					<label class="form-label visually-hidden" for="select-box-case-type">What type of plan is this document? </label>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information for types of plan.</span></p>
 					<select class="form-control" id="select-box-case-type" name="select-box-case-type" data-rule-required="true">
 						<option value="">Please select</option>
 						<option value="select-plan-a"{% if data['select-box-case-type'] == 'select-plan-a' %} selected{% endif %}>Re-determination</option>
@@ -46,6 +47,7 @@
 
 				<div class="form-group form-elem-container">
 					<h3 class="heading-medium">Is this your only appeal for this site?</h3>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information for appeals.</span></p>					
 
 					<div class="multiple-choice">
 						<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true"{% if data['registered'] == 'true' %} checked{% endif %}>
@@ -61,12 +63,14 @@
 
 				<div class="form-group form-elem-container input-other-field">
 					<label class="form-label" for="case-reference">If no then please provide us with your case reference number</label>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information case reference numbers.</span></p>					
 					<input class="form-control" id="case-reference" name="case-reference" type="text" value="{% if data['case-reference'] %}{{data['case-reference']}}{% endif %}"> 
 					<span class="error-container"></span>
 				</div>
 
 				<div class="form-group form-elem-container">
 					<label class="form-label" for="select-box-proposal">What is the proposal?</label>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information case proposals.</span></p>					
 					<select class="form-control" id="select-box-proposal" name="select-box-proposal" data-rule-required="true">
 						<option value="">Please select</option>
 						<option value="option-a"{% if data['select-box-proposal'] == 'option-a' %} selected{% endif %}>Residential</option>
@@ -83,6 +87,7 @@
 
 				<div class="form-group form-elem-container">
 					<label class="form-label" for="select-box-case-scale">What is the scale?</label>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information on scale.</span></p>					
 					<select class="form-control" id="select-box-case-scale" name="select-box-case-scale" data-rule-required="true">
 						<option value="">Please select</option>
 						<option value="option-a"{% if data['select-box-case-scale'] == 'option-a' %} selected{% endif %}>Under 0.1ha or up to 3 dwellings, 1-5 bedroom/caravans; 1-3 Gypsy &amp; Traveller caravans</option>
@@ -97,6 +102,7 @@
 
 				<div class="form-group form-elem-container">
 					<h3 class="heading-medium" for="select-box-case-type">Which of the following were a reason/reasons for refusal?</h3>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Supporting information on reasons for refusal.</span></p>					
 					<div class="multiple-choice">
 						<input id="refusalA" type="radio" name="refusal" value="refusalA" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
 						<label for="refusalA">Living Conditions: sunlight/daylight; privacy/overlooking; smell/fumes; overshadowing; overbearing; visual impact; amenity space, health fears; noise; outlook</label>
@@ -173,7 +179,7 @@
 
 				<div class="form-group form-elem-container">
 					<h3 class="heading-medium">What procedure would you like to continue with?</h3>
-					<p><span class="text-hint">Based on your answers, in 90% of similar cases a Hearing will be carried out</span></p>
+					<p><span class="info icon icon-info"></span> <span class="hint-text">Based on your answers, in 90% of similar cases a Hearing will be carried out</span></p>
 					<div class="multiple-choice">
 						<input id="procedureContinueA" type="checkbox" name="procedure" value="procedureContinueA" data-rule-required="true"{% if data['procedure'] == 'procedureContinueA' %} checked{% endif %}>
 						<label for="procedureContinueA">Written representation</label>
@@ -192,8 +198,12 @@
 					<span class="error-container"></span>
 				</div>
 
-				<div class="form-group form-elem-container">
-					<h3 class="heading-medium">Based on your answers; only 20% of similar appeals are overruled. Are you sure you want to continue? <span class="info icon icon-info"></span></h3>
+				<div class="form-group form-elem-container">				
+					<h3 class="heading-medium">Are you sure you want to continue?</h3>
+					<p>
+					<span class="info icon icon-info"></span>
+					<span class="hint-text">Based on your answers; only 20% of similar appeals are overruled.</span>
+					</p>
 					<div class="multiple-choice">
 						<input id="appealContinueA" type="radio" name="appeal-continue" value="true" data-rule-required="true"{% if data['appeal-continue'] == 'true' %} checked{% endif %}>
 						<label for="appealContinueA">Yes</label>
