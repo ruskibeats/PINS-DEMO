@@ -1,0 +1,221 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  What is the type of the case
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	<div class="grid-row">
+		{% include 'components/top-bar.html' %}
+	</div>
+
+	<div class="acp-form-container" data-progress="6">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+			<header>
+				<h2 class="heading-large">What is the type of the case?</h2>
+			</header>
+
+			<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+				<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+					Message to alert the user to a problem goes here
+				</h2>
+
+				<p>Optional description of the errors and how to correct them</p>
+
+				<ul class="error-summary-list">
+					<li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+				</ul>
+			</div>
+
+
+			<form action="/form-step-a" method="get" class="form">
+				<div class="form-group form-elem-container">
+					<label class="form-label visually-hidden" for="select-box-case-type">What type of plan is this document?</label>
+					<select class="form-control" id="select-box-case-type" name="select-box-case-type" data-rule-required="true">
+						<option value="">Please select</option>
+						<option value="select-plan-a"{% if data['select-box-case-type'] == 'select-plan-a' %} selected{% endif %}>Re-determination</option>
+						<option value="select-plan-b"{% if data['select-box-case-type'] == 'select-plan-b' %} selected{% endif %}>Failure</option>
+						<option value="select-plan-c"{% if data['select-box-case-type'] == 'select-plan-c' %} selected{% endif %}>Appeal against conditions (S.79)</option>
+						<option value="select-plan-d"{% if data['select-box-case-type'] == 'select-plan-d' %} selected{% endif %}>Appeal against conditions (S.73)</option>
+					</select>
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container">
+					<h3 class="heading-medium">Is this your only appeal for this site?</h3>
+
+					<div class="multiple-choice">
+						<input id="registeredTrue" type="radio" name="registered" value="true" data-rule-required="true"{% if data['registered'] == 'true' %} checked{% endif %}>
+						<label for="registeredTrue">Yes</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input class="input-other" id="registeredFalse" type="radio" name="registered" value="false" data-rule-required="true"{% if data['registered'] == 'false' %} checked{% endif %}>
+						<label for="registeredFalse">No</label>
+					</div>
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container input-other-field">
+					<label class="form-label" for="case-reference">If no then please provide us with your case reference number</label>
+					<input class="form-control" id="case-reference" name="case-reference" type="text" value="{% if data['case-reference'] %}{{data['case-reference']}}{% endif %}"> 
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container">
+					<label class="form-label" for="select-box-proposal">What is the proposal?</label>
+					<select class="form-control" id="select-box-proposal" name="select-box-proposal" data-rule-required="true">
+						<option value="">Please select</option>
+						<option value="option-a"{% if data['select-box-proposal'] == 'option-a' %} selected{% endif %}>Residential</option>
+						<option value="option-b"{% if data['select-box-proposal'] == 'option-b' %} selected{% endif %}>Commercial</option>
+						<option value="option-c"{% if data['select-box-proposal'] == 'option-c' %} selected{% endif %}>Industrial</option>
+						<option value="option-d"{% if data['select-box-proposal'] == 'option-d' %} selected{% endif %}>Community</option>
+						<option value="option-e"{% if data['select-box-proposal'] == 'option-e' %} selected{% endif %}>Telecomms</option>
+						<option value="option-f"{% if data['select-box-proposal'] == 'option-f' %} selected{% endif %}>Mineral</option>
+						<option value="option-g"{% if data['select-box-proposal'] == 'option-g' %} selected{% endif %}>Waste</option>
+						<option value="option-h"{% if data['select-box-proposal'] == 'option-h' %} selected{% endif %}>Incineration</option>
+					</select>
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container">
+					<label class="form-label" for="select-box-case-scale">What is the scale?</label>
+					<select class="form-control" id="select-box-case-scale" name="select-box-case-scale" data-rule-required="true">
+						<option value="">Please select</option>
+						<option value="option-a"{% if data['select-box-case-scale'] == 'option-a' %} selected{% endif %}>Under 0.1ha or up to 3 dwellings, 1-5 bedroom/caravans; 1-3 Gypsy &amp; Traveller caravans</option>
+						<option value="option-b"{% if data['select-box-case-scale'] == 'option-b' %} selected{% endif %}>0.1 - 1ha or 4-30 dwellings, 6-15 bedroom/caravans; 4-15 Gypsy &amp; Traveller caravans</option>
+						<option value="option-c"{% if data['select-box-case-scale'] == 'option-c' %} selected{% endif %}>1-5ha or 31-100 dwellings, 16-50 bedroom/caravans (incl. G&amp;T)</option>
+						<option value="option-d"{% if data['select-box-case-scale'] == 'option-d' %} selected{% endif %}>10-20ha or 251-600 dwellings, 121-250 bedroom/caravans (incl. G&amp;T)</option>
+						<option value="option-3"{% if data['select-box-case-scale'] == 'option-e' %} selected{% endif %}>Over 20ha, over 600 dwellings, over 250 bedroom/caravans (incl. G&amp;T)</option>
+					</select>
+					<span class="error-container"></span>
+				</div>
+
+
+				<div class="form-group form-elem-container">
+					<h3 class="heading-medium" for="select-box-case-type">Which of the following were a reason/reasons for refusal?</h3>
+					<div class="multiple-choice">
+						<input id="refusalA" type="radio" name="refusal" value="refusalA" data-rule-required="true"{% if data['refusal'] == 'refusalA' %} checked{% endif %}>
+						<label for="refusalA">Living Conditions: sunlight/daylight; privacy/overlooking; smell/fumes; overshadowing; overbearing; visual impact; amenity space, health fears; noise; outlook</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalB" type="radio" name="refusal" value="refusalB" data-rule-required="true"{% if data['refusal'] == 'refusalB' %} checked{% endif %}>
+						<label for="refusalB">Agriculture: Occupancy/dwelling</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalC" type="radio" name="refusal" value="refusalC" data-rule-required="true"{% if data['refusal'] == 'refusalC' %} checked{% endif %}>
+						<label for="refusalC">Green Belt: Inappropriate development</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalD" type="radio" name="refusal" value="refusalD" data-rule-required="true"{% if data['refusal'] == 'refusalD' %} checked{% endif %}>
+						<label for="refusalD">Listed Building/Scheduled Ancient Monuments</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalE" type="radio" name="refusal" value="refusalE" data-rule-required="true"{% if data['refusal'] == 'refusalE' %} checked{% endif %}>
+						<label for="refusalE">Character &amp; Appearance: Cramped, density, out of keeping/character; design; loss of trees.</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalF" type="radio" name="refusal" value="refusalF" data-rule-required="true"{% if data['refusal'] == 'refusalF' %} checked{% endif %}>
+						<label for="refusalF">Nature Conservation</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalG" type="radio" name="refusal" value="refusalG" data-rule-required="true"{% if data['refusal'] == 'refusalG' %} checked{% endif %}>
+						<label for="refusalG">Flooding</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalH" type="radio" name="refusal" value="refusalH" data-rule-required="true"{% if data['refusal'] == 'refusalH' %} checked{% endif %}>
+						<label for="refusalH">Highway Safety</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalI" type="radio" name="refusal" value="refusalI" data-rule-required="true"{% if data['refusal'] == 'refusalI' %} checked{% endif %}>
+						<label for="refusalI">Drainage</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalJ" type="radio" name="refusal" value="refusalJ" data-rule-required="true"{% if data['refusal'] == 'refusalJ' %} checked{% endif %}>
+						<label for="refusalJ">Power generation/every saving</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalK" type="radio" name="refusal" value="refusalK" data-rule-required="true"{% if data['refusal'] == 'refusalK' %} checked{% endif %}>
+						<label for="refusalK">Tree preservation order</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="refusalL" type="radio" name="refusal" value="refusalL" data-rule-required="true"{% if data['refusal'] == 'refusalL' %} checked{% endif %}>
+						<label for="refusalL">Human Rights</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input class="input-other" id="refusalM" type="radio" name="refusal" value="refusalM" data-rule-required="true"{% if data['refusal'] == 'refusalM' %} checked{% endif %}>
+						<label for="refusalM">Other</label>
+					</div>
+					<span class="error-container"></span>
+					
+				</div>
+
+				<div class="form-group form-elem-container input-other-field">
+					<label class="form-label" for="reason-refusal-other">If other then please specify:</label>
+					<input class="form-control" id="reason-refusal-other" name="reason-refusal-other" type="text" value="{% if data['reason-refusal-other'] %}{{data['reason-refusal-other']}}{% endif %}"> 
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container">
+					<h3 class="heading-medium">What procedure would you like to continue with?</h3>
+					<p><span class="text-hint">Based on your answers, in 90% of similar cases a Hearing will be carried out</span></p>
+					<div class="multiple-choice">
+						<input id="procedureContinueA" type="checkbox" name="procedure" value="procedureContinueA" data-rule-required="true"{% if data['procedure'] == 'procedureContinueA' %} checked{% endif %}>
+						<label for="procedureContinueA">Written representation</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="procedureContinueB" type="checkbox" name="procedure" value="procedureContinueB" data-rule-required="true"{% if data['procedure'] == 'procedureContinueB' %} checked{% endif %}>
+						<label for="procedureContinueB">Hearing</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="procedureContinueC" type="checkbox" name="procedure" value="procedureContinueC" data-rule-required="true"{% if data['procedure'] == 'procedureContinueC' %} checked{% endif %}>
+						<label for="procedureContinueC">Inquiry</label>
+					</div>
+
+					<span class="error-container"></span>
+				</div>
+
+				<div class="form-group form-elem-container">
+					<h3 class="heading-medium">Based on your answers; only 20% of similar appeals are overruled. Are you sure you want to continue? <span class="info icon icon-info"></span></h3>
+					<div class="multiple-choice">
+						<input id="appealContinueA" type="radio" name="appeal-continue" value="true" data-rule-required="true"{% if data['appeal-continue'] == 'true' %} checked{% endif %}>
+						<label for="appealContinueA">Yes</label>
+					</div>
+
+					<div class="multiple-choice">
+						<input id="appealContinueB" type="radio" name="appeal-continue" value="false" data-rule-required="true"{% if data['appeal-continue'] == 'false' %} checked{% endif %}>
+						<label for="appealContinueB">No</label>
+					</div>
+
+					<span class="error-container"></span>					
+				</div>
+
+
+				<div class="form-group">
+					<input type="submit" class="button" value="Save and continue">
+				</div>
+			</form>
+			
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

@@ -122,4 +122,15 @@ $(document).ready(function () {
         });
     });
   });
+
+  $(function () {
+    $('input[class=input-other]').each(function () {
+      var $this = $(this);
+
+      $this.on('change', function (){
+        $this.parents('.form-elem-container').next('.input-other-field').addClass('show');
+      });
+      
+    });
+  });
 });

@@ -10,12 +10,19 @@
 	<div class="grid-row">
 		{% include 'components/top-bar.html' %}
 	</div>
-	<div class="acp-form-container" data-progress="8">
+	<div class="acp-form-container" data-progress="9">
 		<div class="grid-row">
 			<div class="column-full">
 				<header>
 					<h2 class="heading-large">Upload your files</h2>
 				</header>
+
+				{% if data['refusal'] == 'refusalK' %}
+					{{data['refusal']}}
+				{% else %}
+				<p>nah</p>
+				{% endif %}
+
 
 				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
 					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">

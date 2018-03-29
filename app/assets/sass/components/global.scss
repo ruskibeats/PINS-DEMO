@@ -35,3 +35,13 @@ ul {
 .add-plan{
     margin-top: 20px;
 }
+
+.input-other-field {
+
+    .js-enabled & {
+        display: none;
+    }
+    &.show {
+        display: block;
+    }
+}

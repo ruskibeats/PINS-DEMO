@@ -66,6 +66,9 @@ var data = {
     },
     {
       'id': '9'
+    },
+    {
+      'id': '10'
     }
   ],
   'reasons': [
@@ -99,6 +102,90 @@ var data = {
   ]
 }
 
+// Steps
+
+// Step 
+// Route application type page
+router.get('/application-type', function (req, res) {
+  var registered = req.query.registered
+
+  if (registered === 'false') {
+    res.redirect('/register')
+  } else {
+    res.render('application-type', data)
+  }
+});
+
+// Step 
+// Route reason for appeal
+router.get('/reason-appeal', function (req, res) {
+  var enforcementNotice = req.query.enforcementNotice
+
+  if (enforcementNotice === 'enforcementNotice') {
+    res.redirect('/enforcement-notice')
+  } else {
+    res.render('reason-appeal', data)
+  }
+});
+
+// Step 
+// Route enforcement notice
+router.get('/enforcement-notice', function (req, res) {  
+  var enforcementNotice = req.query.enforcementNotice
+
+  if (enforcementNotice === 'false') {
+    res.redirect('/place-holder')
+  } else {
+    res.redirect('/date-lpa')
+    // res.render('/enforcement-notice')
+  }
+});
+
+// Step 
+// // Route date of decision
+router.get('/date-lpa', function (req, res) {  
+  res.render('date-lpa', data)
+});
+
+// Step 
+// Route create appeal
+router.get('/create-appeal', function (req, res) {
+  var dateLPA = req.query.dateLPA
+
+  if (dateLPA === 'false') {
+    res.redirect('/place-holder')
+  } else {
+    res.render('create-appeal', data)
+  }
+});
+
+// Step 
+// Route create appeal
+router.get('/appellant', function (req, res) {
+  res.render('appellant', data)
+});
+
+// Route case type
+router.get('/case-type', function (req, res) {
+  res.render('case-type', data)
+});
+
+// Route form pages
+// Step 
+router.get('/form-step-a', function (req, res) {
+  res.render('form-step-a', data)
+});
+// Step 
+router.get('/form-step-b', function (req, res) {
+  res.render('form-step-b', data)
+});
+// Step 
+router.get('/form-step-c', function (req, res) {
+  res.render('form-step-c', data)
+});
+
+// Pages
+
 // Route index page
 router.get('/', function (req, res) {
   res.render('index')
@@ -116,92 +203,26 @@ router.get('/login', function (req, res) {
   if (appeal === 'true') {
     res.render('login', data)    
   } else {
-    res.redirect('appellant')
+    res.redirect('case-type')
   }
 })
-
-// Route application type page
-router.get('/application-type', function (req, res) {
-  var registered = req.query.registered
-
-  if (registered === 'false') {
-    res.redirect('/register')
-  } else {
-    res.render('application-type', data)
-  }
-});
-
-// Route reason for appeal
-router.get('/reason-appeal', function (req, res) {
-  var enforcementNotice = req.query.enforcementNotice
-
-  if (enforcementNotice === 'enforcementNotice') {
-    res.redirect('/enforcement-notice')
-  } else {
-    res.render('reason-appeal', data)
-  }
-});
-
-// Route enforcement notice
-router.get('/enforcement-notice', function (req, res) {  
-  var enforcementNotice = req.query.enforcementNotice
-
-  if (enforcementNotice === 'false') {
-    res.redirect('/place-holder')
-  } else {
-    res.redirect('/date-lpa')
-    // res.render('/enforcement-notice')
-  }
-});
-
-// // Route date of decision
-router.get('/date-lpa', function (req, res) {  
-  res.render('date-lpa', data)
-});
-
-// Route create appeal
-router.get('/create-appeal', function (req, res) {
-  var dateLPA = req.query.dateLPA
-
-  if (dateLPA === 'false') {
-    res.redirect('/place-holder')
-  } else {
-    res.render('create-appeal', data)
-  }
-});
-
-// Route create appeal
-router.get('/appellant', function (req, res) {
-  res.render('appellant', data)
-});
-
-// Route form pages
-router.get('/form-step-a', function (req, res) {
-  res.render('form-step-a', data)
-});
-router.get('/form-step-b', function (req, res) {
-  res.render('form-step-b', data)
-});
-router.get('/form-step-c', function (req, res) {
-  res.render('form-step-c', data)
-});
 
 // Route thank you page
 router.get('/confirm-details', function (req, res) {
   res.render('confirm-details', data)
 });
 
-// Route thank you page
+// Route detailed view
 router.get('/detailed-view', function (req, res) {
   res.render('detailed-view', data)
 });
 
-// Route thank you page
+// Route dashboard appellant page
 router.get('/dashboard-appellant', function (req, res) {
   res.render('dashboard-appellant');
 });
 
-// Route thank you page
+// Route dashboard validator page
 router.get('/dashboard-validator', function (req, res) {
   res.render('dashboard-validator');
 });
@@ -215,6 +236,5 @@ router.get('/place-holder', function (req, res) {
 router.get('/your-application', function (req, res) {
   res.render('your-application', data)
 })
-
 
 module.exports = router
